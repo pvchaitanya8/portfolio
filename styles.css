@@ -1,0 +1,159 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding: 0;
+    background-image: url('background1.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    color: #fff; 
+    margin-top: 80px; 
+    padding-top: 20px; 
+}
+
+header {
+    background: linear-gradient(135deg, #0a0061, #1300be);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 999; 
+}
+
+
+h1 {
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333; 
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.411);
+    color: #fff; 
+}
+
+.section-container {
+    background-color: #333; 
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.411);
+    padding: 20px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.section-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgb(0, 0, 0);
+}
+
+h2 {
+    color: #fff; 
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6;
+    color: #ccc; 
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.work-experience-list li,
+.work-project-list li {
+    border-bottom: 1px solid #555; 
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.work-experience-list li:last-child,
+.work-project-list li:last-child {
+    border-bottom: none;
+}
+
+.work-experience-list li:hover,
+.work-project-list li:hover {
+    background-color: #444; 
+    transform: translateX(5px);
+}
+
+.work-experience-list li h3,
+.work-project-list li h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.work-project-list a {
+    color: #007bff;
+}
+
+.work-project-list a:hover {
+    color: #ccc; 
+}
+
+.section-container.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header {
+    background-position: center;
+    background-size: cover;
+}
+
+h1.typing {
+    overflow: hidden; 
+    border-right: .15em solid rgb(255, 255, 255); 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+.work-experience-list img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: calc(100% - 13em);
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: rgba(183, 188, 255, 0.932);
+    }
+}
