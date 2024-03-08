@@ -1,4 +1,4 @@
-body {
+    body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
@@ -26,36 +26,57 @@ header {
     z-index: 999; 
 }
 
-
 h1 {
     color: #fff;
     font-size: 36px;
     margin: 0;
+    transition: all 2s ease;
 }
 
+h1:hover {
+    color: #F0F8FF;
+    font-size: 36px;
+    transition: all 2s ease;
+}
 
 .container {
     max-width: 850px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #333; 
+    background-color: #222; 
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.411);
     color: #fff; 
 }
 
-.section-container {
-    background-color: #333; 
+.container-title {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222; 
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.411);
-    padding: 20px;
-    margin-top: 30px;
+    color: #fff; 
     transition: all 0.3s ease;
+}
+
+.container-title:hover {
+    background-color: #010127; 
+    transition: all 0.8s ease;
+}
+
+.section-container {
+    background-color: #222; 
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgb(0, 0, 0);
+    padding: 20px;
+    margin-top: 35px;
+    transition: all 0.8s ease;
 }
 
 .section-container:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgb(0, 0, 0);
+    box-shadow: 0 12px 30px rgb(0, 0, 0);
 }
 
 h2 {
@@ -84,7 +105,7 @@ ul {
 
 .work-experience-list li,
 .work-project-list li {
-    border-bottom: 1px solid #555; 
+    border-bottom: 1px solid #222; 
     padding: 15px 0;
     transition: all 0.3s ease;
 }
@@ -96,7 +117,7 @@ ul {
 
 .work-experience-list li:hover,
 .work-project-list li:hover {
-    background-color: #444; 
+    background-color: #333; 
     transform: translateX(5px);
 }
 
@@ -169,22 +190,22 @@ h1.typing {
 .work-project-card {
     flex: 0 0 auto;
     width: 300px; 
-    /* height: 500px;  */
-    background-color: #333;
+    height: 510px; 
+    background-color: #222;
     border-radius: 15px;
     padding: 20px;
     margin-right: 20px;
     color: #fff;
-    box-shadow: 0 6px 15px rgb(31, 31, 31);
+    box-shadow: 0 6px 15px rgb(0, 0, 0);
 }
 .work-project-card {
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .work-project-card:hover {
-    background-color: #3f3f3f;
+    background-color: #333;
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgb(0, 0, 0);
+    box-shadow: 0 12px 30px rgb(0, 0, 0);
 }
 
 
