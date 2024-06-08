@@ -34,7 +34,7 @@ h1 {
 }
 
 h1:hover {
-    color: #F0F8FF;
+    color: #fff;
     font-size: 36px;
     transition: all 2s ease;
 }
@@ -72,7 +72,7 @@ h1:hover {
 }
 
 .container-title:hover {
-    background-color: #010127; 
+    background-color: #1d1d1d; 
     transition: all 0.8s ease;
 }
 
@@ -128,8 +128,9 @@ ul {
 
 .work-experience-list li:hover,
 .work-project-list li:hover {
-    background-color: #333; 
     transform: translateX(5px);
+    background-color: #1f1f1f;
+    transition: all 0.3s ease;
 }
 
 .work-experience-list li h3,
@@ -214,7 +215,7 @@ h1.typing {
 }
 
 .work-project-card:hover {
-    background-color: #333;
+    background-color: #1f1f1f;
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgb(0, 0, 0);
 }
@@ -326,7 +327,7 @@ h1.typing {
 }
 
 .profile-pic:hover {
-    border: 4px solid #007bff; 
+    border: 4px solid #1b1b1b; 
     transition: all 0.3s ease;
 }
 
