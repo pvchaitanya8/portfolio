@@ -3,14 +3,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    background-image: url('images/background1.jpg'); /* Update path if needed */
+    background-image: url('images/background1.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
-    margin-top: 80px; /* Adjust for fixed header */
-    line-height: 1.6; /* Improve readability */
+    margin-top: 80px;
+    line-height: 1.6;
   }
 
   header {
@@ -39,7 +39,7 @@ body {
   header nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: 500; /* Slightly bolder font for links */
+    font-weight: 500;
   }
   
   header nav ul li a:hover {
@@ -103,7 +103,7 @@ h1:hover {
     box-shadow: 0 6px 15px rgb(0, 0, 0);
     padding: 20px;
     margin-top: 35px;
-    transition: all 0.3s ease; /* Smoother transition on hover */
+    transition: all 0.3s ease;
 }
   
   .section-container:hover {
@@ -405,125 +405,116 @@ a[download]:hover {
 }
   
 
-/* ... your other styles ... */
-
 @media (max-width: 768px) { 
     .container {
-      max-width: 95%;   /* Slightly wider container on smaller screens */
-      padding: 15px;   /* Reduce padding for better use of space */
+        max-width: 95%;
+        padding: 15px; 
     }
   
     .container-title {
-      max-width: 95%; 
-      padding: 15px; 
+        max-width: 95%; 
+        padding: 15px; 
     }
   
     .project-container {
-      flex-direction: column; /* Stack project cards vertically */
+        flex-direction: column;
     }
   
     .work-project-card {
-      width: 90%;            /* Wider cards on smaller screens */
-      margin: 20px auto;    /* Center cards */
-      height: auto;         /* Allow cards to adjust height to content */
+        width: 90%;         
+        margin: 20px auto;  
+        height: auto;       
     }
   
     .work-project-card img {
-      height: 35%;         /* Adjust image height for vertical layout */
+        height: 35%;
     }
   
     nav ul {
-      flex-direction: column; /* Stack navigation links vertically */
-      align-items: center;   /* Center links horizontally */
+        flex-direction: column;
+        align-items: center;   
     }
   
     nav li {
-      margin: 10px 0;        /* Adjust spacing for vertical links */
+        margin: 10px 0;      
     }
   
     .profile-section {
-      flex-direction: column; /* Stack profile picture and text vertically */
-      align-items: center;   /* Center the profile picture */
+        flex-direction: column;
+        align-items: center;   
     }
   
     .profile-pic {
-      margin: 0 0 20px 0;    /* Add space below the picture */
+        margin: 0 0 20px 0;
     }
   
     .about-me {
-      text-align: center;   /* Center align the text */
+        text-align: center;
     }
   
     .logo-container {
-      flex-direction: column;  /* Stack logos vertically */
-      align-items: center;    /* Center logos horizontally */
+        flex-direction: column;
+        align-items: center;
     }
   
     .logo-container a {
-      margin: 10px 0;          /* Adjust spacing between logos */
+        margin: 10px 0;
     }
-    /* ... other styles ... */
 
-/* Side Panel Styles */
-#sidePanel {
-  position: fixed;      /* Fix to the side */
-  top: 80px;            /* Adjust for header height */
-  left: -250px;         /* Initially hidden off-screen */
-  width: 250px;         /* Width of the panel */
-  height: 100%;
-  background-color: #222;
-  transition: left 0.3s ease; /* Smooth slide-in transition */
-  z-index: 1000; /* Ensure the panel is above content */
-  overflow-y: auto; /* Add scrollbar if content is too long */
+    #sidePanel {
+        position: fixed; 
+        top: 80px;       
+        left: -250px;    
+        width: 250px;    
+        height: 100%;
+        background-color: #222;
+        transition: left 0.3s ease;
+        z-index: 1000; 
+        overflow-y: auto; 
+    }
+
+    #sidePanel.open { 
+        left: 0;
+    }
+
+    #sidePanel ul {
+        list-style: none;
+        padding: 20px;
+    }
+
+    #sidePanel li {
+        margin-bottom: 15px;
+    }
+
+    #sidePanel a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+
+    #sidePanel a:hover {
+        text-decoration: underline;
+    }
+
+    .menu-icon {
+        display: none; 
+    }
+
+
+    #sidePanel {
+        top: 50px;
+    }
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    nav {
+        display: none;
+    }
 }
-
-#sidePanel.open { 
-  left: 0;             /* Slide in when open */
-}
-
-#sidePanel ul {
-  list-style: none;
-  padding: 20px;
-}
-
-#sidePanel li {
-  margin-bottom: 15px; /* Adjust spacing between links */
-}
-
-#sidePanel a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2em;  /* Larger font for the side panel */
-}
-
-#sidePanel a:hover {
-  text-decoration: underline;
-}
-
-/* Hide menu icon on larger screens */
-.menu-icon {
-  display: none; 
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  #sidePanel {
-    top: 50px; /* Adjust for smaller header on mobile */
-  }
-  .menu-icon {
-    display: block;  /* Show menu icon on small screens */
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-  }
-
-  nav {
-    display: none;     /* Hide original navigation */
-  }
-}
-
-  }
-  

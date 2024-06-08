@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   
     setTimeout(() => {
       loading.style.display = "none";
-    }, 1000); // Add a delay to simulate loading
+    }); 
   
     sections.forEach((section, index) => {
       section.style.opacity = 0;
