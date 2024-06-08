@@ -1,31 +1,52 @@
-    body {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    padding: 0;
     background-color: black;
-    background-image: url('images/background1.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    color: #fff; 
-    margin-top: 80px; 
-    padding-top: 20px; 
-}
+    background-image: url('images/background1.jpg'); /* Update path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    margin-top: 80px; /* Adjust for fixed header */
+    line-height: 1.6; /* Improve readability */
+  }
 
-header {
+  header {
     background: linear-gradient(135deg, #343a40, #212529);
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    z-index: 999; 
-}
-
+    transition: background-position-y 0.5s ease;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  header nav ul li {
+    margin-left: 20px;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500; /* Slightly bolder font for links */
+  }
+  
+  header nav ul li a:hover {
+    color: #d2e8ff;
+    text-decoration: underline;
+  }
+  
 h1 {
     color: #fff;
     font-size: 36px;
@@ -51,13 +72,13 @@ h1:hover {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 70%; 
     margin: 0 auto;
     padding: 20px;
-    background-color: #222; 
+    background-color: #222;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.411);
-    color: #fff; 
+    color: #fff;
 }
 
 .container-title {
@@ -77,15 +98,15 @@ h1:hover {
 }
 
 .section-container {
-    background-color: #222; 
+    background-color: #222;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgb(0, 0, 0);
     padding: 20px;
     margin-top: 35px;
-    transition: all 0.8s ease;
+    transition: all 0.3s ease; /* Smoother transition on hover */
 }
-
-.section-container:hover {
+  
+  .section-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgb(0, 0, 0);
 }
@@ -153,10 +174,7 @@ ul {
     transform: translateY(0);
 }
 
-header {
-    background-position: center;
-    background-size: cover;
-}
+
 
 h1.typing {
     overflow: hidden; 
@@ -386,12 +404,126 @@ a[download]:hover {
     transition: transform 0.3s ease;
 }
   
-header nav ul li a {
-    color: #ffffff;
-}
+
+/* ... your other styles ... */
+
+@media (max-width: 768px) { 
+    .container {
+      max-width: 95%;   /* Slightly wider container on smaller screens */
+      padding: 15px;   /* Reduce padding for better use of space */
+    }
   
-header nav ul li a:hover {
-    color: #d2e8ff; 
-    text-decoration: underline;
+    .container-title {
+      max-width: 95%; 
+      padding: 15px; 
+    }
+  
+    .project-container {
+      flex-direction: column; /* Stack project cards vertically */
+    }
+  
+    .work-project-card {
+      width: 90%;            /* Wider cards on smaller screens */
+      margin: 20px auto;    /* Center cards */
+      height: auto;         /* Allow cards to adjust height to content */
+    }
+  
+    .work-project-card img {
+      height: 35%;         /* Adjust image height for vertical layout */
+    }
+  
+    nav ul {
+      flex-direction: column; /* Stack navigation links vertically */
+      align-items: center;   /* Center links horizontally */
+    }
+  
+    nav li {
+      margin: 10px 0;        /* Adjust spacing for vertical links */
+    }
+  
+    .profile-section {
+      flex-direction: column; /* Stack profile picture and text vertically */
+      align-items: center;   /* Center the profile picture */
+    }
+  
+    .profile-pic {
+      margin: 0 0 20px 0;    /* Add space below the picture */
+    }
+  
+    .about-me {
+      text-align: center;   /* Center align the text */
+    }
+  
+    .logo-container {
+      flex-direction: column;  /* Stack logos vertically */
+      align-items: center;    /* Center logos horizontally */
+    }
+  
+    .logo-container a {
+      margin: 10px 0;          /* Adjust spacing between logos */
+    }
+    /* ... other styles ... */
+
+/* Side Panel Styles */
+#sidePanel {
+  position: fixed;      /* Fix to the side */
+  top: 80px;            /* Adjust for header height */
+  left: -250px;         /* Initially hidden off-screen */
+  width: 250px;         /* Width of the panel */
+  height: 100%;
+  background-color: #222;
+  transition: left 0.3s ease; /* Smooth slide-in transition */
+  z-index: 1000; /* Ensure the panel is above content */
+  overflow-y: auto; /* Add scrollbar if content is too long */
 }
+
+#sidePanel.open { 
+  left: 0;             /* Slide in when open */
+}
+
+#sidePanel ul {
+  list-style: none;
+  padding: 20px;
+}
+
+#sidePanel li {
+  margin-bottom: 15px; /* Adjust spacing between links */
+}
+
+#sidePanel a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;  /* Larger font for the side panel */
+}
+
+#sidePanel a:hover {
+  text-decoration: underline;
+}
+
+/* Hide menu icon on larger screens */
+.menu-icon {
+  display: none; 
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #sidePanel {
+    top: 50px; /* Adjust for smaller header on mobile */
+  }
+  .menu-icon {
+    display: block;  /* Show menu icon on small screens */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  nav {
+    display: none;     /* Hide original navigation */
+  }
+}
+
+  }
   
