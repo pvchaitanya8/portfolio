@@ -29,26 +29,26 @@ header {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
   
-  header nav ul {
+header nav ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  }
+}
   
-  header nav ul li {
+header nav ul li {
     margin-left: 20px;
-  }
+}
   
-  header nav ul li a {
+header nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-  }
+}
   
-  header nav ul li a:hover {
+header nav ul li a:hover {
     color: #d2e8ff;
     text-decoration: underline;
-  }
+}
   
 h1 {
     color: #fff;
@@ -96,7 +96,8 @@ h1:hover {
 }
 
 .container-title:hover {
-    background-color: #1d1d1d; 
+    background-color: #111; 
+    transform: translateY(-5px);
     transition: all 0.8s ease;
 }
 
@@ -109,7 +110,7 @@ h1:hover {
     transition: all 0.3s ease;
 }
   
-  .section-container:hover {
+.section-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgb(0, 0, 0);
 }
@@ -434,6 +435,7 @@ a[download]:hover {
     margin: 0;
     padding: 20px 40px;
     border-left: 5px solid #318CE7;
+    text-align: justify;
     font-style: italic;
     position: relative;
 }
