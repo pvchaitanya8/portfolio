@@ -585,4 +585,14 @@ a[download]:hover {
         color: #ccc;
         margin-top: 10px;
     }
+    .complements-list blockquote {
+        font-size: 0.7em;
+        color: #fff;
+        margin: 0;
+        padding: 20px 40px;
+        border-left: 5px solid #318CE7;
+        text-align: justify;
+        font-style: italic;
+        position: relative;
+    }
 }
