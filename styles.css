@@ -1527,9 +1527,9 @@ body {
 
 .volunteer-impact span {
     padding: 0.5rem 1rem;
-    background: rgba(255, 0, 255, 0.1);
+    background: rgba(0, 102, 255, 0.1);
     color: var(--accent-pink);
-    border: 1px solid rgba(255, 0, 255, 0.3);
+    border: 1px solid rgba(0, 68, 255, 0.3);
     border-radius: var(--border-radius);
     font-family: var(--font-code);
     font-size: 0.9rem;
