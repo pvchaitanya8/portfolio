@@ -2128,6 +2128,27 @@ body {
     .social-link {
         justify-content: center;
     }
+
+    .timeline::before {
+        left: 15px; /* Move the timeline line to the left */
+        transform: translateX(0);
+    }
+
+    .timeline-item {
+        padding-left: 45px; /* Add space for the marker and line */
+        padding-right: 0;   /* Reset right-side padding */
+    }
+
+    /* Override the desktop-specific padding for all items on mobile */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 45px; /* Ensure consistent padding for all cards */
+        padding-right: 0;
+    }
+
+    .timeline-marker {
+        left: 15px; /* Move the marker to align with the new line position */
+    }
 }
 
 @media (max-width: 480px) {
