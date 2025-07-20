@@ -904,9 +904,9 @@ body {
     border-radius: 50%;
 }
 
-.control-close { background: var(--accent-tertiary); }
-.control-min { background: var(--accent-secondary); }
-.control-max { background: var(--accent-primary); }
+.control-close { background: rgb(255, 0, 0); }
+.control-min { background: rgb(9, 255, 0); }
+.control-max { background: rgb(238, 255, 0); }
 
 .terminal-content {
     padding: 1rem;

@@ -487,6 +487,7 @@ class PortfolioApp {
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
+        const navDropdown = document.getElementById('nav-dropdown'); // Get the parent li
         const dropdownToggle = document.getElementById('dropdown-toggle');
         const dropdownMenu = document.getElementById('dropdown-menu');
         
@@ -546,23 +547,17 @@ class PortfolioApp {
         });
         
         // Dropdown functionality for desktop
-        if (dropdownToggle && dropdownMenu) {
+        if (navDropdown && dropdownToggle) {
             dropdownToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (window.innerWidth <= 768) {
-                    // Mobile behavior - toggle dropdown
-                    const isVisible = dropdownMenu.style.display === 'block';
-                    dropdownMenu.style.display = isVisible ? 'none' : 'block';
-                }
+                e.preventDefault(); // Prevents the link from navigating
+                navDropdown.classList.toggle('active');
             });
         }
         
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
-            if (dropdownMenu && !e.target.closest('.nav-dropdown')) {
-                if (window.innerWidth <= 768) {
-                    dropdownMenu.style.display = 'none';
-                }
+            if (navDropdown && !navDropdown.contains(e.target)) {
+                navDropdown.classList.remove('active');
             }
         });
         
