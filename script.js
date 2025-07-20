@@ -65,9 +65,9 @@ class PortfolioApp {
         let targetX = 0;
         let targetY = 0;
         
-        // Increased responsiveness for more natural movement
-        const easing = 0.25; // Increased from 0.12 for faster response
-        const trailCreationRate = 0.92; // Adjusted for better trail generation
+        // Enhanced responsiveness for natural movement
+        const easing = 0.25;
+        const trailCreationRate = 0.90;
 
         // Math calculations and code snippets for hover states
         const calculations = [
@@ -90,10 +90,20 @@ class PortfolioApp {
             'MSE = Σ(y-ŷ)²/n',
             'Adam optimizer',
             'batch_norm()',
-            'dropout(0.5)'
+            'dropout(0.5)',
+            '∇f = ∂f/∂x î + ∂f/∂y ĵ',
+            '∫ e^x dx = e^x + C',
+            'lim(x→∞) (1 + 1/x)^x = e',
+            'Σ(i=1 to n) i = n(n+1)/2',
+            'P(A|B) = P(B|A)P(A)/P(B)',
+            'f(x) = Σ(aₙ cos(nωx))',
+            'det(A) = Σ sgn(σ)∏aᵢ,σ(ᵢ)',
+            'χ² = Σ(Oᵢ-Eᵢ)²/Eᵢ'
         ];
 
         let currentCalc = 0;
+        let isHovering = false;
+        let hoverTimeout = null;
 
         // Enhanced mouse tracking with immediate response
         document.addEventListener('mousemove', (e) => {
@@ -108,7 +118,6 @@ class PortfolioApp {
 
         // Faster cursor animation with immediate position updates
         const animateCursor = () => {
-            // Faster easing for more responsive movement
             targetX += (mouseX - targetX) * easing;
             targetY += (mouseY - targetY) * easing;
             
@@ -119,23 +128,28 @@ class PortfolioApp {
         };
         animateCursor();
 
-        // Update calculation display
         const calcDisplay = cursor.querySelector('.cursor-calculation');
-        if (calcDisplay) {
-            calcDisplay.textContent = calculations[currentCalc];
-        }
 
-        // Enhanced cursor interactions with more elements
+        // Enhanced cursor interactions with proper timing
         const interactiveElements = document.querySelectorAll(`
             a, button, .nav-link, .cta-button, .project-card, .work-card, 
             .skill-badge, .timeline-item, .achievement-card, .testimonial-card,
             .certification-card, .contact-method, .social-link, .nav-dropdown,
-            .dropdown-menu, .stat-item, .status-item, .carousel-btn, .nav-dot
+            .dropdown-menu, .stat-item, .status-item, .carousel-btn, .nav-dot,
+            .education-card, .volunteer-card
         `);
         
         interactiveElements.forEach((element, index) => {
             element.addEventListener('mouseenter', () => {
+                isHovering = true;
                 cursor.classList.add('cursor-hover');
+                
+                // Clear any existing timeout
+                if (hoverTimeout) {
+                    clearTimeout(hoverTimeout);
+                }
+                
+                // Show new calculation immediately
                 currentCalc = (currentCalc + 1) % calculations.length;
                 if (calcDisplay) {
                     calcDisplay.textContent = calculations[currentCalc];
@@ -144,10 +158,15 @@ class PortfolioApp {
             });
             
             element.addEventListener('mouseleave', () => {
+                isHovering = false;
                 cursor.classList.remove('cursor-hover');
-                if (calcDisplay) {
-                    calcDisplay.style.opacity = '0';
-                }
+                
+                // FIXED: Equation disappears after a short delay
+                hoverTimeout = setTimeout(() => {
+                    if (!isHovering && calcDisplay) {
+                        calcDisplay.style.opacity = '0';
+                    }
+                }, 300); // Short delay before hiding
             });
 
             element.addEventListener('mousedown', () => {
@@ -180,7 +199,9 @@ class PortfolioApp {
             '0', '1', '{', '}', '[', ']', '(', ')', 
             'π', '∞', 'λ', 'Σ', '∇', '∂', 'α', 'β', 
             'θ', 'φ', 'ω', 'μ', 'σ', 'τ', '≈', '∈',
-            '→', '←', '↑', '↓', '⟨', '⟩', '∀', '∃'
+            '→', '←', '↑', '↓', '⟨', '⟩', '∀', '∃',
+            '⊕', '⊗', '⊙', '⊚', '∴', '∵', '∝', '≡',
+            '≠', '≤', '≥', '∪', '∩', '⊂', '⊃', '∅'
         ];
         trail.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
         
@@ -195,10 +216,9 @@ class PortfolioApp {
             if (trail.parentNode) {
                 trail.parentNode.removeChild(trail);
             }
-        }, 1000);
+        }, 1200);
     }
 
-    // FIXED: Neural Network Animation for Intro Section
     initializeMatrixRain() {
         this.neuralCanvas = document.getElementById('neural-canvas');
         if (!this.neuralCanvas) return;
@@ -462,128 +482,99 @@ class PortfolioApp {
         const navbar = document.getElementById('navbar');
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
         const dropdownToggle = document.getElementById('dropdown-toggle');
-        const dropdown = document.getElementById('nav-dropdown');
+        const dropdownMenu = document.getElementById('dropdown-menu');
         
-        if (!navbar || !hamburger || !navMenu) return;
-
-        // FIXED: Smooth navbar scroll effect without flickering
+        // FIXED: Stable scroll behavior
         let lastScrollY = window.scrollY;
-        let ticking = false;
+        let scrollTimeout;
         
-        const updateNavbar = () => {
+        const handleScroll = () => {
             const currentScrollY = window.scrollY;
             
-            if (currentScrollY > 100) {
-                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-                navbar.style.backdropFilter = 'blur(20px)';
+            // Add scrolled class for navbar styling
+            if (currentScrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.classList.remove('scrolled');
             }
             
             lastScrollY = currentScrollY;
-            ticking = false;
-        };
-
-        const requestTick = () => {
-            if (!ticking) {
-                requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
-        };
-
-        window.addEventListener('scroll', requestTick, { passive: true });
-
-        // FIXED: Mobile hamburger menu without flickering
-        hamburger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
             
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
+            // Clear timeout to prevent excessive calculations
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
             }
-        });
-
-        // FIXED: Dropdown functionality for both desktop and mobile
-        if (dropdownToggle && dropdown) {
-            dropdownToggle.addEventListener('click', (e) => {
+            
+            scrollTimeout = setTimeout(() => {
+                this.updateActiveNavLink();
+            }, 100);
+        };
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // FIXED: Mobile menu toggle without animations causing jumps
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopPropagation();
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
                 
-                // Check if we're in mobile view
-                const isMobile = window.innerWidth <= 768;
-                
-                if (isMobile) {
-                    dropdown.classList.toggle('active');
+                // Prevent body scroll when menu is open
+                if (navMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
                 } else {
-                    // Desktop hover behavior is handled by CSS
-                    return;
+                    document.body.style.overflow = '';
                 }
             });
         }
-
+        
         // Close mobile menu when clicking nav links
-        const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Only close menu for actual navigation links, not dropdown toggles
-                if (!link.classList.contains('dropdown-toggle')) {
-                    hamburger.classList.remove('active');
+            link.addEventListener('click', () => {
+                if (navMenu && hamburger) {
                     navMenu.classList.remove('active');
-                    if (dropdown) dropdown.classList.remove('active');
+                    hamburger.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
         });
-
-        // Close menu when clicking outside
+        
+        // Dropdown functionality for desktop
+        if (dropdownToggle && dropdownMenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (window.innerWidth <= 768) {
+                    // Mobile behavior - toggle dropdown
+                    const isVisible = dropdownMenu.style.display === 'block';
+                    dropdownMenu.style.display = isVisible ? 'none' : 'block';
+                }
+            });
+        }
+        
+        // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
-            if (!navbar.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                if (dropdown) dropdown.classList.remove('active');
-                document.body.style.overflow = '';
+            if (dropdownMenu && !e.target.closest('.nav-dropdown')) {
+                if (window.innerWidth <= 768) {
+                    dropdownMenu.style.display = 'none';
+                }
             }
         });
-
-        // FIXED: Handle window resize to prevent menu state issues
+        
+        // Handle window resize
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
-                // Reset mobile menu state on larger screens
-                hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-                if (dropdown) dropdown.classList.remove('active');
+                hamburger.classList.remove('active');
                 document.body.style.overflow = '';
-            }
-        });
-
-        // Smooth scroll to sections
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        const offsetTop = targetElement.offsetTop - navbar.offsetHeight;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+                if (dropdownMenu) {
+                    dropdownMenu.style.display = '';
+                }
             }
         });
     }
+
 
     // Enhanced project cards initialization (already stable, but ensuring no issues)
     initializeProjects() {
