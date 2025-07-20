@@ -329,7 +329,7 @@ class PortfolioApp {
                 
                 this.neuralCtx.beginPath();
                 this.neuralCtx.arc(node.x, node.y, radius, 0, Math.PI * 2);
-                this.neuralCtx.fillStyle = `rgba(0, 255, 255, ${alpha})`;
+                this.neuralCtx.fillStyle = `rgba(0, 132, 255, ${alpha})`; // Changed to blue
                 this.neuralCtx.fill();
                 
                 // Inner glow

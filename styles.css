@@ -45,11 +45,11 @@
     --font-code: 'Fira Code', 'JetBrains Mono', 'SF Mono', monospace;
     
     /* Tech Shadows & Effects */
-    --shadow-primary: 0 2px 20px rgba(0, 255, 255, 0.1);
+    --shadow-primary: 0 2px 20px rgba(0, 110, 255, 0.1);
     --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --glow-primary: 0 0 20px rgba(0, 255, 255, 0.3);
+    --glow-primary: 0 0 20px rgba(0, 89, 255, 0.3);
     --glow-secondary: 0 0 15px rgba(0, 255, 65, 0.2);
-    --shadow-te: 0 20px 50px rgba(0, 255, 255, 0.15);
+    --shadow-te: 0 20px 50px rgba(0, 68, 255, 0.15);
 }
 
 /* Reset and Base Styles */
@@ -420,7 +420,7 @@ body {
     border-radius: 50%;
     top: 20%;
     left: 10%;
-    border-color: var(--accent-cyan);
+    border-color: var(--accent-primary);
     animation-duration: 25s;
 }
 
@@ -490,10 +490,10 @@ body {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: var(--accent-cyan);
+    background: var(--accent-orange);
     border-radius: 50%;
     animation: particleFloat 10s linear infinite;
-    box-shadow: 0 0 10px var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-orange);
 }
 
 .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
