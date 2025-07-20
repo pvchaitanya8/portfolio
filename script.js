@@ -594,31 +594,44 @@ class PortfolioApp {
     // Stats counter animation
     initializeStats() {
         const statNumbers = document.querySelectorAll('.stat-number');
-        
+
         const animateCounter = (element) => {
-            const target = parseInt(element.getAttribute('data-count'));
+            // Use parseFloat to handle decimal values from the data-count attribute
+            const target = parseFloat(element.getAttribute('data-count'));
+            if (isNaN(target)) return; // Exit if data-count is not a valid number
+
             const duration = 2000;
             const start = performance.now();
-            
+
             const updateCounter = (currentTime) => {
                 const elapsed = currentTime - start;
                 const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function for smooth animation
                 const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const current = Math.floor(easeOutQuart * target);
-                
-                element.textContent = current;
-                
+                let current = easeOutQuart * target;
+
+                // Check if the target is a float to determine formatting
+                if (target % 1 !== 0) {
+                    // If it's a float, display the animation with one decimal place
+                    element.textContent = current.toFixed(1);
+                } else {
+                    // If it's an integer, display it as a whole number
+                    element.textContent = Math.floor(current);
+                }
+
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 } else {
-                    element.textContent = target;
+                    // Ensure the final value is exactly the target, formatted correctly
+                    if (target % 1 !== 0) {
+                        element.textContent = target.toFixed(1);
+                    } else {
+                        element.textContent = target;
+                    }
                 }
             };
-            
+
             requestAnimationFrame(updateCounter);
-        };
+        };        
         
         // Observe stats and animate when in view
         const statsObserver = new IntersectionObserver((entries) => {
