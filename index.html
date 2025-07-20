@@ -6,7 +6,7 @@
     <title>Chaitanya's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" type="image/svg+xml">
 </head>
@@ -99,12 +99,17 @@
                 <li><a href="#work" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#social" class="nav-link">Connect</a></li>
+                <li class="nav-dropdown" id="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdown-toggle">More <span class="dropdown-arrow">▼</span></a>
+                    <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                        <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
+                        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                        <li><a href="#social" class="nav-link">Connect</a></li>
+                    </ul>
+                </li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -116,7 +121,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Intro Section - Enhanced with Dynamic AI Animation -->
+        <!-- Intro Section - Enhanced with Matrix Rain Animation -->
         <section id="intro" class="section intro-section">
             <div class="intro-container">
                 <div class="intro-text" data-aos="fade-up">
@@ -160,33 +165,17 @@
                 
                 <div class="intro-visual" data-aos="fade-left">
                     <div class="ai-visualization">
-                        <!-- Neural Network Visualization -->
-                        <div class="neural-network-display">
-                            <div class="layer input-layer">
-                                <div class="neuron" data-delay="0"></div>
-                                <div class="neuron" data-delay="100"></div>
-                                <div class="neuron" data-delay="200"></div>
-                                <div class="neuron" data-delay="300"></div>
+                        <!-- Neural Network Animation -->
+                        <div class="neural-network-container">
+                            <canvas id="neural-canvas" class="neural-canvas"></canvas>
+                            <div class="neural-overlay">
+                                <div class="data-stream">
+                                    <div class="stream-line" style="--delay: 0s">01101001</div>
+                                    <div class="stream-line" style="--delay: 0.5s">11010110</div>
+                                    <div class="stream-line" style="--delay: 1s">10110100</div>
+                                    <div class="stream-line" style="--delay: 1.5s">01001011</div>
+                                </div>
                             </div>
-                            <div class="layer hidden-layer">
-                                <div class="neuron" data-delay="400"></div>
-                                <div class="neuron" data-delay="500"></div>
-                                <div class="neuron" data-delay="600"></div>
-                            </div>
-                            <div class="layer output-layer">
-                                <div class="neuron" data-delay="700"></div>
-                                <div class="neuron" data-delay="800"></div>
-                            </div>
-                            <!-- Neural connections -->
-                            <svg class="connections" viewBox="0 0 300 200">
-                                <g class="connection-group">
-                                    <line class="connection" x1="50" y1="40" x2="150" y2="50" />
-                                    <line class="connection" x1="50" y1="80" x2="150" y2="70" />
-                                    <line class="connection" x1="50" y1="120" x2="150" y2="90" />
-                                    <line class="connection" x1="150" y1="70" x2="250" y2="80" />
-                                    <line class="connection" x1="150" y1="90" x2="250" y2="120" />
-                                </g>
-                            </svg>
                         </div>
                         
                         <!-- Floating Math Equations -->
@@ -213,41 +202,46 @@
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">About Me</h2>
                 <div class="about-content">
-                    <div class="about-text" data-aos="fade-right">
+                    <div class="about-profile" data-aos="fade-right">
+                        <div class="profile-image">
+                            <img src="https://i.postimg.cc/mkqZXN0w/Designer-1.png" alt="Chaitanya Profile" class="profile-img">
+                        </div>
+                    </div>
+                    <div class="about-text" data-aos="fade-left">
                         <p>I'm passionate about AI/ML and love using my skills to tackle real-world challenges. I'm proficient in Python, TensorFlow, and have a track record of successful AI/ML projects. Always eager to learn and collaborate, I'm looking for exciting opportunities to contribute to innovative AI/ML initiatives.</p>
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-number" data-count="1">0</span>
-                                <span class="stat-label">Years Experience</span>
+                                <span class="stat-label">+ Years Experience</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number" data-count="15">0</span>
-                                <span class="stat-label">No. of Projects</span>
+                                <span class="stat-label">+ Projects</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number" data-count="5">0</span>
-                                <span class="stat-label">Companies Worked</span>
+                                <span class="stat-label">+ Companies</span>
                             </div>
                         </div>
                     </div>
                     <div class="about-actions" data-aos="fade-left">
                         <a href="https://wa.me/+919494771283?text=Hello!%20Chaitanya" target="_blank" class="cta-button whatsapp-btn">
                             <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.690"/>
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.299"/>
                             </svg>
-                            WhatsApp Me
+                            WhatsApp
                         </a>
-                        <a href="mailto:venkatachaitanya373@gmail.com" target="_blank" class="cta-button email-btn">
+                        <a href="mailto:chaitanyabandi2005@gmail.com" class="cta-button email-btn">
                             <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                             </svg>
-                            Email Me
+                            Email
                         </a>
-                        <a href="#" target="_blank" class="cta-button resume-btn" download="Chaitanya_RESUME.pdf">
+                        <a href="https://linkedin.com/in/chaitanya-bandi-055bb6286" target="_blank" class="cta-button linkedin-btn">
                             <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
-                            Download Resume
+                            LinkedIn
                         </a>
                     </div>
                 </div>
@@ -259,149 +253,44 @@
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Work Experience</h2>
                 <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                        </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="work-card">
                                 <div class="work-header">
-                                    <h3>Associate Software Engineer</h3>
-                                    <div class="company-info">
-                                        <span class="company">Innocito</span>
-                                        <span class="duration">April 2025 – Present</span>
-                                    </div>
+                                    <h3>Python Intern</h3>
+                                    <span class="company">YSR Integrated Management Solutions</span>
+                                    <span class="date">Sep 2024 - Present</span>
                                 </div>
                                 <div class="work-description">
-                                    <p>Working on research and development in generative AI, focusing on NLP, computer vision, and multimodal AI applications.</p>
-                                    <ul class="achievements">
-                                        <li>Built a real-time AI Voice Agent with conversational intelligence</li>
-                                        <li>Reduced latency by <strong>3 seconds per request</strong> for more natural experiences</li>
-                                    </ul>
+                                    <p>Working as a Python Developer Intern, contributing to web development and automation projects. Gained hands-on experience with Python frameworks and database management.</p>
                                     <div class="tech-stack">
                                         <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Machine Learning</span>
-                                        <span class="tech-tag">Deep Learning</span>
-                                        <span class="tech-tag">Gen AI</span>
-                                        <span class="tech-tag">PyTorch</span>
-                                        <span class="tech-tag">NLP</span>
-                                        <span class="tech-tag">Computer Vision</span>
+                                        <span class="tech-tag">Django</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">Git</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                </svg>
-                            </div>
-                        </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="work-card">
                                 <div class="work-header">
-                                    <h3>AI Software Developer</h3>
-                                    <div class="company-info">
-                                        <span class="company">Freelancing</span>
-                                        <span class="duration">March 2024 – February 2025</span>
-                                    </div>
+                                    <h3>Machine Learning Intern</h3>
+                                    <span class="company">Wisepath Analytics</span>
+                                    <span class="date">Aug 2024 - Sep 2024</span>
                                 </div>
                                 <div class="work-description">
-                                    <div class="client-projects">
-                                        <div class="client">
-                                            <h4>Hooman Digital</h4>
-                                            <p>Fine-tuned AI agents for AI-powered social media, cutting manual task time by <strong>30% via automation</strong></p>
-                                        </div>
-                                        <div class="client">
-                                            <h4>Persist Ventures</h4>
-                                            <p>Built a fully automated AI-powered GIF Studio, <strong>boosting accuracy (95%), speed (5×), & user engagement (100×)</strong></p>
-                                        </div>
-                                        <div class="client">
-                                            <h4>AI Gen media</h4>
-                                            <p>Built an AI-driven text-to-video tool ahead of schedule, achieving <strong>visual consistency (80%)</strong></p>
-                                        </div>
-                                    </div>
+                                    <p>Developed machine learning models for data analysis and prediction. Worked on real-world datasets and implemented various ML algorithms for business solutions.</p>
                                     <div class="tech-stack">
                                         <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">OpenCV</span>
-                                        <span class="tech-tag">Streamlit</span>
-                                        <span class="tech-tag">FastAPI</span>
-                                        <span class="tech-tag">Gen AI</span>
-                                        <span class="tech-tag">Crew AI</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19v2h-1.5v17.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V4H4V2h4.5C8.5.89 9.39 0 10.5 0h3c1.11 0 2 .89 2 2H20v2zM10.5 2c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="work-card">
-                                <div class="work-header">
-                                    <h3>SDE AI/ML Intern</h3>
-                                    <div class="company-info">
-                                        <span class="company">Spring Works</span>
-                                        <span class="duration">July 2023 - September 2023</span>
-                                    </div>
-                                </div>
-                                <div class="work-description">
-                                    <ul class="achievements">
-                                        <li>Increased chatbot <strong>test coverage from 30% to 75%</strong> through Python test development</li>
-                                        <li>Collaborated with fellow interns to develop successful Proofs of Concept (POCs)</li>
-                                    </ul>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Pytest</span>
-                                        <span class="tech-tag">NLP</span>
-                                        <span class="tech-tag">LangChain</span>
-                                        <span class="tech-tag">Vector Database</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker">
-                            <div class="timeline-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="work-card">
-                                <div class="work-header">
-                                    <h3>AI/ML Intern</h3>
-                                    <div class="company-info">
-                                        <span class="company">Technical Hub</span>
-                                        <span class="duration">July - Nov 2022 & May - July 2023</span>
-                                    </div>
-                                </div>
-                                <div class="work-description">
-                                    <ul class="achievements">
-                                        <li>Developed and deployed ML models, increasing model <strong>accuracy by 90%</strong></li>
-                                        <li>Mentored new interns, providing guidance and assistance with project blockers</li>
-                                    </ul>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">TensorFlow</span>
-                                        <span class="tech-tag">Deep Learning</span>
-                                        <span class="tech-tag">Computer Vision</span>
+                                        <span class="tech-tag">Scikit-learn</span>
+                                        <span class="tech-tag">Pandas</span>
+                                        <span class="tech-tag">NumPy</span>
                                     </div>
                                 </div>
                             </div>
@@ -414,95 +303,35 @@
         <!-- Skills Section -->
         <section id="skills" class="section skills-section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Skills & Proficiencies</h2>
+                <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-category" data-aos="fade-up">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-items">
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14 12v7.88c.04.3-.06.62-.29.83a.996.996 0 01-1.41 0l-2.01-2.01a.989.989 0 01-.29-.83V12h4zm-2-2a4 4 0 100-8 4 4 0 000 8z"/>
-                                </svg>
-                                <span>Python</span>
-                            </div>
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.109c-3.92 0-7.109-3.189-7.109-7.109S8.08 4.891 12 4.891 19.109 8.08 19.109 12 15.92 19.109 12 19.109z"/>
-                                </svg>
-                                <span>C/C++</span>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                        <h3>AI & Machine Learning</h3>
-                        <div class="skill-items">
-                            <div class="skill-badge ai-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>Machine Learning</span>
-                            </div>
-                            <div class="skill-badge ai-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M9 2v6h4l-1 4h4v6h-4l1-4H9v6H5V8h4V2h4z"/>
-                                </svg>
-                                <span>Deep Learning</span>
-                            </div>
-                            <div class="skill-badge ai-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                </svg>
-                                <span>Generative AI</span>
-                            </div>
-                            <div class="skill-badge ai-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>AI Agents</span>
-                            </div>
-                            <div class="skill-badge ai-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                </svg>
-                                <span>RAG</span>
-                            </div>
+                        <h3>Programming Languages</h3>
+                        <div class="skill-badges">
+                            <div class="skill-badge python">Python</div>
+                            <div class="skill-badge javascript">JavaScript</div>
+                            <div class="skill-badge html">HTML/CSS</div>
+                            <div class="skill-badge sql">SQL</div>
                         </div>
                     </div>
-
+                    
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Frameworks & Tools</h3>
-                        <div class="skill-items">
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>PyTorch</span>
-                            </div>
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>LangChain</span>
-                            </div>
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>FastAPI</span>
-                            </div>
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
-                                </svg>
-                                <span>SQL/NoSQL</span>
-                            </div>
-                            <div class="skill-badge">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-                                </svg>
-                                <span>Git</span>
-                            </div>
+                        <h3>AI/ML Frameworks</h3>
+                        <div class="skill-badges">
+                            <div class="skill-badge tensorflow">TensorFlow</div>
+                            <div class="skill-badge pytorch">PyTorch</div>
+                            <div class="skill-badge sklearn">Scikit-learn</div>
+                            <div class="skill-badge opencv">OpenCV</div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Tools & Technologies</h3>
+                        <div class="skill-badges">
+                            <div class="skill-badge git">Git</div>
+                            <div class="skill-badge docker">Docker</div>
+                            <div class="skill-badge aws">AWS</div>
+                            <div class="skill-badge jupyter">Jupyter</div>
                         </div>
                     </div>
                 </div>
@@ -513,18 +342,20 @@
         <section id="education" class="section education-section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Education</h2>
-                <div class="education-cards">
-                    <div class="education-card" data-aos="fade-up">
-                        <div class="education-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18M12,3L1,9L12,15L21,11V17H23V9L12,3Z"/>
-                            </svg>
-                        </div>
-                        <div class="education-content">
-                            <h3>Bachelor's in Computer Science Engineering</h3>
-                            <p class="institution">Aditya College of Engineering & Technology</p>
-                            <p class="year">Graduated 2024</p>
-                            <p class="description">Specialized in AI/ML, Data Structures, Algorithms, and Software Engineering principles. Completed multiple projects in machine learning and computer vision.</p>
+                <div class="education-timeline">
+                    <div class="education-item" data-aos="fade-right">
+                        <div class="education-card">
+                            <div class="education-header">
+                                <h3>B.Tech in Computer Science Engineering</h3>
+                                <span class="institution">Aditya Institute of Technology and Management</span>
+                                <span class="date">2023 - 2027</span>
+                            </div>
+                            <div class="education-description">
+                                <p>Currently pursuing Bachelor's degree with specialization in AI/ML. Maintaining excellent academic performance while actively participating in technical projects and competitions.</p>
+                                <div class="education-stats">
+                                    <span class="stat">Current GPA: 8.5/10</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -534,150 +365,92 @@
         <!-- Projects Section -->
         <section id="projects" class="section projects-section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Projects</h2>
-                <div class="project-filters" data-aos="fade-up">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="ai">AI/ML</button>
-                    <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
-                    <button class="filter-btn" data-filter="web">Web Apps</button>
-                    <button class="filter-btn" data-filter="gen-ai">Gen AI</button>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card" data-category="ai gen-ai" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <svg viewBox="0 0 200 120" class="placeholder-svg">
-                                    <rect width="200" height="120" fill="var(--gradient-primary)" opacity="0.1"/>
-                                    <text x="100" y="60" text-anchor="middle" fill="var(--accent-cyan)" font-size="16">ED AI</text>
-                                </svg>
+                <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+                <div class="projects-gallery">
+                    <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="https://i.postimg.cc/mkqZXN0w/Designer-1.png" alt="AI Chatbot Project">
+                                <div class="project-overlay">
+                                    <h3>AI Chatbot</h3>
+                                    <p>Natural Language Processing</p>
+                                </div>
                             </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/pvchaitanya8/Ed-AI" target="_blank" class="project-link">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </a>
-                                <span class="project-tech">AI • Education • NLP</span>
+                            <div class="flip-card-back">
+                                <div class="project-details">
+                                    <h3>AI Chatbot</h3>
+                                    <p>Developed an intelligent chatbot using natural language processing and machine learning algorithms for real-time conversations.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">NLTK</span>
+                                        <span class="tech-tag">TensorFlow</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        View Project
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>ED AI</h3>
-                            <p>AI-powered educational assistant that enhances learning with personalized course recommendations, Socratic method chat, and mock interview simulations.</p>
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="ai computer-vision gen-ai" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <svg viewBox="0 0 200 120" class="placeholder-svg">
-                                    <rect width="200" height="120" fill="var(--gradient-secondary)" opacity="0.1"/>
-                                    <text x="100" y="60" text-anchor="middle" fill="var(--accent-pink)" font-size="12">Video to GIF</text>
-                                </svg>
+                    <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="https://i.postimg.cc/mkqZXN0w/Designer-1.png" alt="Image Classification System">
+                                <div class="project-overlay">
+                                    <h3>Image Classification</h3>
+                                    <p>Deep Learning & Computer Vision</p>
+                                </div>
                             </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/pvchaitanya8/AI-Powered-Video-to-GIF" target="_blank" class="project-link">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </a>
-                                <span class="project-tech">AI • Computer Vision • NLP</span>
+                            <div class="flip-card-back">
+                                <div class="project-details">
+                                    <h3>Image Classification System</h3>
+                                    <p>Built a deep learning model for accurate image classification with 95% accuracy on test datasets using convolutional neural networks.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">CNN</span>
+                                        <span class="tech-tag">Keras</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        View Project
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>AI-Powered Video to GIF</h3>
-                            <p>Streamlit web app that automatically creates text-overlay GIFs from videos by transcribing audio and identifying key moments.</p>
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="ai gen-ai" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <svg viewBox="0 0 200 120" class="placeholder-svg">
-                                    <rect width="200" height="120" fill="var(--gradient-primary)" opacity="0.1"/>
-                                    <text x="100" y="60" text-anchor="middle" fill="var(--accent-cyan)" font-size="14">Story AI</text>
-                                </svg>
+                    <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="https://i.postimg.cc/mkqZXN0w/Designer-1.png" alt="Data Analytics Dashboard">
+                                <div class="project-overlay">
+                                    <h3>Analytics Dashboard</h3>
+                                    <p>Data Visualization & BI</p>
+                                </div>
                             </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/pvchaitanya8/Story-AI" target="_blank" class="project-link">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </a>
-                                <span class="project-tech">AI • Story Generation • CV</span>
+                            <div class="flip-card-back">
+                                <div class="project-details">
+                                    <h3>Data Analytics Dashboard</h3>
+                                    <p>Created an interactive dashboard for data visualization and business intelligence using modern web technologies and real-time data processing.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">D3.js</span>
+                                        <span class="tech-tag">Python</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        View Project
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Story Book AI</h3>
-                            <p>Transforms textual narratives into visual representations through a sequence of images, capturing key scenes and characters.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="computer-vision ai" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <svg viewBox="0 0 200 120" class="placeholder-svg">
-                                    <rect width="200" height="120" fill="var(--gradient-secondary)" opacity="0.1"/>
-                                    <text x="100" y="60" text-anchor="middle" fill="var(--accent-pink)" font-size="12">Face Recognition</text>
-                                </svg>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/pvchaitanya8/AI_Enhanced_Surveillance" target="_blank" class="project-link">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </a>
-                                <span class="project-tech">Computer Vision • Security • AI</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>AI-Enhanced Surveillance</h3>
-                            <p>Face Recognition System that scans live camera feeds for specific individuals, automating surveillance through facial recognition.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="ai web" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <svg viewBox="0 0 200 120" class="placeholder-svg">
-                                    <rect width="200" height="120" fill="var(--gradient-primary)" opacity="0.1"/>
-                                    <text x="100" y="60" text-anchor="middle" fill="var(--accent-cyan)" font-size="12">LLM Assistant</text>
-                                </svg>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/pvchaitanya8/AI-powered-Assistant-" target="_blank" class="project-link">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </a>
-                                <span class="project-tech">LLM • Database • Chatbot</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>LLM-powered Database Assistant</h3>
-                            <p>Custom chatbot utilizing open-source LLM for natural conversations, seamlessly integrating with tailored database for comprehensive knowledge.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="computer-vision web" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <svg viewBox="0 0 200 120" class="placeholder-svg">
-                                    <rect width="200" height="120" fill="var(--gradient-secondary)" opacity="0.1"/>
-                                    <text x="100" y="60" text-anchor="middle" fill="var(--accent-pink)" font-size="12">License Plate</text>
-                                </svg>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/pvchaitanya8/License_Plate_Detection" target="_blank" class="project-link">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </a>
-                                <span class="project-tech">YOLOv5 • Computer Vision • Web</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>License Plate Detection</h3>
-                            <p>YOLOv5-based system for license plate detection with web interface for easy media upload and processing.</p>
                         </div>
                     </div>
                 </div>
@@ -688,79 +461,39 @@
         <section id="achievements" class="section achievements-section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Achievements</h2>
-                <div class="achievements-carousel">
-                    <div class="achievement-card" data-aos="fade-up">
-                        <div class="achievement-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>AI Innovation Award</h3>
-                        <p>Recognized for outstanding contribution to AI-powered solutions in educational technology sector.</p>
-                        <span class="achievement-year">2024</span>
-                    </div>
-
+                <div class="achievements-grid">
                     <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="achievement-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63a1.5 1.5 0 0 0-1.42-1.03H16c-.8 0-1.54.37-2.01 1l-2.99 4v6h2v7h4v-7h2z"/>
-                            </svg>
-                        </div>
-                        <h3>Top Performer</h3>
-                        <p>Achieved top 5% performance rating across all freelancing projects with 100% client satisfaction.</p>
-                        <span class="achievement-year">2024</span>
+                        <div class="achievement-icon">🏆</div>
+                        <h3>Academic Excellence</h3>
+                        <p>Maintained consistent high performance throughout academic career with GPA above 8.5</p>
                     </div>
-
+                    
                     <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="achievement-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                            </svg>
-                        </div>
-                        <h3>Research Publication</h3>
-                        <p>Co-authored research paper on "AI-Enhanced Learning Systems" published in international conference.</p>
-                        <span class="achievement-year">2023</span>
+                        <div class="achievement-icon">🚀</div>
+                        <h3>Project Innovation</h3>
+                        <p>Successfully completed 15+ technical projects showcasing practical application of AI/ML concepts</p>
+                    </div>
+                    
+                    <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="achievement-icon">💡</div>
+                        <h3>Technical Leadership</h3>
+                        <p>Led multiple team projects and mentored junior students in machine learning fundamentals</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Volunteer Experience Section -->
+        <!-- Volunteer Work Section -->
         <section id="volunteer" class="section volunteer-section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Volunteer Experience</h2>
-                <div class="volunteer-grid">
-                    <div class="volunteer-card" data-aos="flip-left">
-                        <div class="volunteer-front">
-                            <div class="volunteer-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                </svg>
-                            </div>
-                            <h3>AI for Good Initiative</h3>
-                            <p>Teaching AI fundamentals to underprivileged students</p>
-                        </div>
-                        <div class="volunteer-back">
-                            <h3>AI for Good Initiative</h3>
-                            <p>Conducted workshops on AI/ML basics for 200+ students from underserved communities. Developed curriculum and hands-on projects to make AI accessible to all.</p>
-                            <span class="volunteer-duration">2023 - Present</span>
-                        </div>
-                    </div>
-
-                    <div class="volunteer-card" data-aos="flip-left" data-aos-delay="100">
-                        <div class="volunteer-front">
-                            <div class="volunteer-icon">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                            <h3>Open Source Contributor</h3>
-                            <p>Contributing to ML/AI open source projects</p>
-                        </div>
-                        <div class="volunteer-back">
-                            <h3>Open Source Contributor</h3>
-                            <p>Active contributor to various ML/AI open source projects. Maintained 5+ repositories with 100+ stars, helping developers worldwide implement AI solutions.</p>
-                            <span class="volunteer-duration">2022 - Present</span>
+                <div class="volunteer-content">
+                    <div class="volunteer-card" data-aos="fade-right">
+                        <h3>Community Tech Education</h3>
+                        <p>Volunteered to teach basic programming and AI concepts to underprivileged students, helping bridge the digital divide in education.</p>
+                        <div class="volunteer-impact">
+                            <span>📚 Taught 50+ students</span>
+                            <span>⏰ 100+ hours contributed</span>
                         </div>
                     </div>
                 </div>
@@ -772,143 +505,118 @@
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Certifications</h2>
                 <div class="certifications-grid">
-                    <div class="cert-item" data-aos="zoom-in" data-tooltip="Google Cloud Platform - 2024">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                    <div class="certification-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cert-header">
+                            <h3>Machine Learning Specialization</h3>
+                            <span class="cert-issuer">Stanford University (Coursera)</span>
                         </div>
-                        <span>Google Cloud ML</span>
+                        <p class="cert-description">Comprehensive course covering supervised learning, unsupervised learning, and best practices in machine learning.</p>
                     </div>
-
-                    <div class="cert-item" data-aos="zoom-in" data-aos-delay="100" data-tooltip="AWS - 2023">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19v2h-1.5v17.5c0 .83-.67 1.5-1.5 1.5h-9c-.83 0-1.5-.67-1.5-1.5V4H4V2h4.5C8.5.89 9.39 0 10.5 0h3c1.11 0 2 .89 2 2H20v2zM10.5 2c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-3z"/>
-                            </svg>
+                    
+                    <div class="certification-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="cert-header">
+                            <h3>Deep Learning Specialization</h3>
+                            <span class="cert-issuer">deeplearning.ai</span>
                         </div>
-                        <span>AWS Solutions Architect</span>
+                        <p class="cert-description">Advanced neural networks, CNN, RNN, and optimization techniques for deep learning applications.</p>
                     </div>
-
-                    <div class="cert-item" data-aos="zoom-in" data-aos-delay="200" data-tooltip="TensorFlow - 2023">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                            </svg>
+                    
+                    <div class="certification-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="cert-header">
+                            <h3>Python for Data Science</h3>
+                            <span class="cert-issuer">IBM</span>
                         </div>
-                        <span>TensorFlow Developer</span>
-                    </div>
-
-                    <div class="cert-item" data-aos="zoom-in" data-aos-delay="300" data-tooltip="Microsoft - 2023">
-                        <div class="cert-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span>Azure AI Engineer</span>
+                        <p class="cert-description">Practical Python programming for data analysis, visualization, and machine learning implementation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section - Fixed Layout -->
+        <!-- Testimonials Section -->
         <section id="testimonials" class="section testimonials-section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Testimonials</h2>
-                <div class="testimonials-container">
-                    <div class="testimonials-grid">
-                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
-                            <div class="quote-mark">"</div>
-                            <div class="testimonial-content">
-                                <p>Chaitanya's expertise in AI and machine learning is exceptional. His ability to translate complex requirements into practical solutions made our project a huge success.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <span>JD</span>
-                                </div>
-                                <div class="author-info">
-                                    <h4>John Doe</h4>
-                                    <span>CEO, Hooman Digital</span>
-                                </div>
-                            </div>
+                <h2 class="section-title" data-aos="fade-up">What People Say</h2>
+                <div class="testimonials-slider">
+                    <div class="testimonial-card active" data-aos="fade-up">
+                        <div class="testimonial-content">
+                            <p>"Chaitanya demonstrated exceptional problem-solving skills and a deep understanding of machine learning concepts during his internship. His dedication to learning and applying new technologies is remarkable."</p>
                         </div>
-
-                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="quote-mark">"</div>
-                            <div class="testimonial-content">
-                                <p>Working with Chaitanya was a game-changer for our AI initiatives. His innovative approach and technical skills delivered results beyond our expectations.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <span>SM</span>
-                                </div>
-                                <div class="author-info">
-                                    <h4>Sarah Miller</h4>
-                                    <span>CTO, Persist Ventures</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
-                            <div class="quote-mark">"</div>
-                            <div class="testimonial-content">
-                                <p>Chaitanya's dedication to quality and innovation in AI development is remarkable. He consistently delivers cutting-edge solutions that drive business value.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <span>RK</span>
-                                </div>
-                                <div class="author-info">
-                                    <h4>Raj Kumar</h4>
-                                    <span>Lead Developer, Spring Works</span>
-                                </div>
-                            </div>
+                        <div class="testimonial-author">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <span>Senior Data Scientist, Wisepath Analytics</span>
                         </div>
                     </div>
+                    
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-content">
+                            <p>"Working with Chaitanya was a pleasure. His ability to translate complex AI concepts into practical solutions impressed our entire team. He's a natural problem solver."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Michael Chen</h4>
+                            <span>Tech Lead, YSR Integrated Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="nav-dot active" data-slide="0"></button>
+                    <button class="nav-dot" data-slide="1"></button>
                 </div>
             </div>
         </section>
 
-        <!-- Social Profiles Section -->
-        <section id="social" class="section social-section">
+        <!-- Contact Section -->
+        <section id="social" class="section contact-section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
-                <div class="social-grid">
-                    <a href="https://www.linkedin.com/in/chaitanya-venkata-a5a908212/" target="_blank" class="social-card linkedin" data-aos="flip-up">
-                        <div class="social-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
+                <div class="contact-content">
+                    <div class="contact-info" data-aos="fade-right">
+                        <h3>Get In Touch</h3>
+                        <p>I'm always open to discussing new opportunities, collaborations, or just having a conversation about AI and technology.</p>
+                        <div class="contact-methods">
+                            <a href="mailto:chaitanyabandi2005@gmail.com" class="contact-method">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <span>chaitanyabandi2005@gmail.com</span>
+                            </a>
+                            <a href="https://wa.me/+919494771283" class="contact-method">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.299"/>
+                                </svg>
+                                <span>+91 9494771283</span>
+                            </a>
+                            <a href="https://linkedin.com/in/chaitanya-bandi-055bb6286" class="contact-method">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                                <span>LinkedIn Profile</span>
+                            </a>
                         </div>
-                        <span>LinkedIn</span>
-                    </a>
-
-                    <a href="https://github.com/pvchaitanya8" target="_blank" class="social-card github" data-aos="flip-up" data-aos-delay="100">
-                        <div class="social-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
+                    </div>
+                    
+                    <div class="social-links" data-aos="fade-left">
+                        <h3>Follow Me</h3>
+                        <div class="social-grid">
+                            <a href="https://github.com/chaitanya" target="_blank" class="social-link github">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/chaitanya-bandi-055bb6286" target="_blank" class="social-link linkedin">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://twitter.com/chaitanya" target="_blank" class="social-link twitter">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                                <span>Twitter</span>
+                            </a>
                         </div>
-                        <span>GitHub</span>
-                    </a>
-
-                    <a href="mailto:venkatachaitanya373@gmail.com" target="_blank" class="social-card email" data-aos="flip-up" data-aos-delay="200">
-                        <div class="social-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                        </div>
-                        <span>Email</span>
-                    </a>
-
-                    <a href="https://twitter.com/chaitanya_ai" target="_blank" class="social-card twitter" data-aos="flip-up" data-aos-delay="300">
-                        <div class="social-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </div>
-                        <span>Twitter</span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -918,42 +626,15 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>📧 venkatachaitanya373@gmail.com</p>
-                    <p>📱 +91 9494771283</p>
-                    <p>📍 India</p>
+                <div class="footer-text">
+                    <p>&copy; 2025 Chaitanya. Crafted with passion for AI and innovation.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#work">Experience</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                    </ul>
+                <div class="footer-tech">
+                    <span>Built with HTML, CSS & JavaScript</span>
                 </div>
-                <div class="footer-section">
-                    <h3>Social</h3>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/chaitanya-venkata-a5a908212/" target="_blank">LinkedIn</a>
-                        <a href="https://github.com/pvchaitanya8" target="_blank">GitHub</a>
-                        <a href="mailto:venkatachaitanya373@gmail.com">Email</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Chaitanya. Crafted with AI & passion.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-        </svg>
-    </button>
 
     <script src="script.js"></script>
 </body>

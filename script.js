@@ -1,6 +1,6 @@
-// Portfolio Website JavaScript
+// Enhanced Portfolio Website JavaScript
 // Author: Chaitanya
-// AI-powered interactive portfolio with animations and modern UX
+// AI-powered interactive portfolio with improved animations and responsive design
 
 class PortfolioApp {
     constructor() {
@@ -10,6 +10,12 @@ class PortfolioApp {
         this.testimonialIndex = 0;
         this.intersectionObserver = null;
         this.mousePosition = { x: 0, y: 0 };
+        this.cursorPosition = { x: 0, y: 0 };
+        this.matrixCanvas = null;
+        this.matrixCtx = null;
+        this.matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        this.matrixColumns = [];
+        this.matrixDrops = [];
         
         this.init();
     }
@@ -33,27 +39,458 @@ class PortfolioApp {
         this.initializeStats();
         this.initializeParallax();
         this.setupKeyboardNavigation();
-        this.initializeCursor();
+        this.initializeEnhancedCursor();
         this.initializeTypingAnimation();
+        this.initializeMatrixRain();
+        this.initializeTestimonials();
         
         // Hide loading screen after animations
         setTimeout(() => this.hideLoadingScreen(), 2000);
     }
 
+    // Enhanced Cursor with Faster, More Natural Movement
+    initializeEnhancedCursor() {
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        cursor.innerHTML = `
+            <div class="cursor-main"></div>
+            <div class="cursor-calculation"></div>
+        `;
+        document.body.appendChild(cursor);
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        
+        // Increased responsiveness for more natural movement
+        const easing = 0.25; // Increased from 0.12 for faster response
+        const trailCreationRate = 0.92; // Adjusted for better trail generation
+
+        // Math calculations and code snippets for hover states
+        const calculations = [
+            '∂L/∂θ = ∇J(θ)',
+            'π = 3.14159...',
+            'e^(iπ) + 1 = 0',
+            'φ = (1+√5)/2',
+            'σ(x) = 1/(1+e⁻ˣ)',
+            'loss ↓ 0.001',
+            'accuracy ↑ 97.3%',
+            'matrix_multiply()',
+            'neural_forward()',
+            'backprop_complete',
+            'gradient_descent()',
+            'optimization_step()',
+            'model.train()',
+            'tensor.reshape()',
+            'np.dot(X, W)',
+            'ReLU(x) = max(0,x)',
+            'MSE = Σ(y-ŷ)²/n',
+            'Adam optimizer',
+            'batch_norm()',
+            'dropout(0.5)'
+        ];
+
+        let currentCalc = 0;
+
+        // Enhanced mouse tracking with immediate response
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Create trailing code elements with better timing
+            if (Math.random() > trailCreationRate) {
+                this.createEnhancedCodeTrail(e.clientX, e.clientY);
+            }
+        });
+
+        // Faster cursor animation with immediate position updates
+        const animateCursor = () => {
+            // Faster easing for more responsive movement
+            targetX += (mouseX - targetX) * easing;
+            targetY += (mouseY - targetY) * easing;
+            
+            cursor.style.left = targetX + 'px';
+            cursor.style.top = targetY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        };
+        animateCursor();
+
+        // Update calculation display
+        const calcDisplay = cursor.querySelector('.cursor-calculation');
+        if (calcDisplay) {
+            calcDisplay.textContent = calculations[currentCalc];
+        }
+
+        // Enhanced cursor interactions with more elements
+        const interactiveElements = document.querySelectorAll(`
+            a, button, .nav-link, .cta-button, .project-card, .work-card, 
+            .skill-badge, .timeline-item, .achievement-card, .testimonial-card,
+            .certification-card, .contact-method, .social-link, .nav-dropdown,
+            .dropdown-menu, .stat-item, .status-item
+        `);
+        
+        interactiveElements.forEach((element, index) => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                currentCalc = (currentCalc + 1) % calculations.length;
+                if (calcDisplay) {
+                    calcDisplay.textContent = calculations[currentCalc];
+                    calcDisplay.style.opacity = '1';
+                }
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                if (calcDisplay) {
+                    calcDisplay.style.opacity = '0';
+                }
+            });
+
+            element.addEventListener('mousedown', () => {
+                cursor.classList.add('cursor-click');
+            });
+
+            element.addEventListener('mouseup', () => {
+                cursor.classList.remove('cursor-click');
+            });
+        });
+
+        // Hide default cursor on all elements
+        const style = document.createElement('style');
+        style.textContent = `
+            *, *::before, *::after {
+                cursor: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Enhanced code trail creation
+    createEnhancedCodeTrail(x, y) {
+        const trail = document.createElement('div');
+        trail.classList.add('cursor-code-trail');
+        trail.style.left = x + 'px';
+        trail.style.top = y + 'px';
+        
+        const codeSnippets = [
+            '0', '1', '{', '}', '[', ']', '(', ')', 
+            'π', '∞', 'λ', 'Σ', '∇', '∂', 'α', 'β', 
+            'θ', 'φ', 'ω', 'μ', 'σ', 'τ', '≈', '∈',
+            '→', '←', '↑', '↓', '⟨', '⟩', '∀', '∃'
+        ];
+        trail.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+        
+        // Add random colors for variety
+        const colors = ['var(--accent-cyan)', 'var(--accent-lime)', 'var(--accent-orange)', 'var(--accent-pink)'];
+        trail.style.color = colors[Math.floor(Math.random() * colors.length)];
+        
+        document.body.appendChild(trail);
+        
+        // Remove trail after animation
+        setTimeout(() => {
+            if (trail.parentNode) {
+                trail.parentNode.removeChild(trail);
+            }
+        }, 1000);
+    }
+
+    // Neural Network Animation for Intro Section
+    initializeMatrixRain() {
+        this.neuralCanvas = document.getElementById('neural-canvas');
+        if (!this.neuralCanvas) return;
+
+        this.neuralCtx = this.neuralCanvas.getContext('2d');
+        this.nodes = [];
+        this.connections = [];
+        
+        // Set canvas size
+        const resizeCanvas = () => {
+            this.neuralCanvas.width = this.neuralCanvas.offsetWidth;
+            this.neuralCanvas.height = this.neuralCanvas.offsetHeight;
+            this.initializeNetwork();
+        };
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Initialize neural network
+        this.initializeNetwork();
+        this.animateNetwork();
+    }
+
+    initializeNetwork() {
+        this.nodes = [];
+        this.connections = [];
+        
+        const layers = [4, 6, 4, 2]; // Input, hidden1, hidden2, output
+        const layerSpacing = this.neuralCanvas.width / (layers.length + 1);
+        
+        // Create nodes
+        layers.forEach((nodeCount, layerIndex) => {
+            const nodeSpacing = this.neuralCanvas.height / (nodeCount + 1);
+            
+            for (let i = 0; i < nodeCount; i++) {
+                this.nodes.push({
+                    x: layerSpacing * (layerIndex + 1),
+                    y: nodeSpacing * (i + 1),
+                    layer: layerIndex,
+                    activation: Math.random(),
+                    targetActivation: Math.random()
+                });
+            }
+        });
+        
+        // Create connections
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = 0; j < this.nodes.length; j++) {
+                if (this.nodes[j].layer === this.nodes[i].layer + 1) {
+                    this.connections.push({
+                        from: i,
+                        to: j,
+                        weight: (Math.random() - 0.5) * 2,
+                        activity: 0
+                    });
+                }
+            }
+        }
+    }
+
+    animateNetwork() {
+        const animate = () => {
+            // Clear canvas
+            this.neuralCtx.clearRect(0, 0, this.neuralCanvas.width, this.neuralCanvas.height);
+            
+            // Update node activations
+            this.nodes.forEach(node => {
+                if (Math.random() < 0.02) {
+                    node.targetActivation = Math.random();
+                }
+                node.activation += (node.targetActivation - node.activation) * 0.05;
+            });
+            
+            // Draw connections
+            this.connections.forEach(conn => {
+                const fromNode = this.nodes[conn.from];
+                const toNode = this.nodes[conn.to];
+                
+                // Animate signal propagation
+                conn.activity += 0.03;
+                if (conn.activity > 1) conn.activity = 0;
+                
+                const gradient = this.neuralCtx.createLinearGradient(
+                    fromNode.x, fromNode.y, toNode.x, toNode.y
+                );
+                
+                const alpha = fromNode.activation * 0.6;
+                gradient.addColorStop(0, `rgba(0, 255, 255, ${alpha})`);
+                gradient.addColorStop(conn.activity, `rgba(0, 255, 65, ${alpha * 1.5})`);
+                gradient.addColorStop(1, `rgba(0, 255, 255, ${alpha * 0.3})`);
+                
+                this.neuralCtx.strokeStyle = gradient;
+                this.neuralCtx.lineWidth = Math.abs(conn.weight) * 2;
+                this.neuralCtx.beginPath();
+                this.neuralCtx.moveTo(fromNode.x, fromNode.y);
+                this.neuralCtx.lineTo(toNode.x, toNode.y);
+                this.neuralCtx.stroke();
+            });
+            
+            // Draw nodes
+            this.nodes.forEach(node => {
+                const radius = 8 + node.activation * 6;
+                const alpha = 0.4 + node.activation * 0.6;
+                
+                this.neuralCtx.beginPath();
+                this.neuralCtx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                this.neuralCtx.fillStyle = `rgba(0, 255, 255, ${alpha})`;
+                this.neuralCtx.fill();
+                
+                // Inner glow
+                this.neuralCtx.beginPath();
+                this.neuralCtx.arc(node.x, node.y, radius * 0.6, 0, Math.PI * 2);
+                this.neuralCtx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.8})`;
+                this.neuralCtx.fill();
+            });
+            
+            requestAnimationFrame(animate);
+        };
+        
+        animate();
+    }
+
+    // Testimonials Carousel
+    initializeTestimonials() {
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const navDots = document.querySelectorAll('.nav-dot');
+        let currentSlide = 0;
+        
+        if (!testimonialCards.length) return;
+
+        const showSlide = (index) => {
+            testimonialCards.forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+            });
+            
+            navDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        };
+
+        // Navigation dots
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonialCards.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Initialize first slide
+        showSlide(0);
+    }
+
+    // Enhanced Navigation with Responsive Dropdown
+    initializeNavigation() {
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        // Hamburger menu toggle
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+
+        // Dropdown menu for desktop
+        if (dropdownToggle && dropdownMenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdownMenu.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                
+                if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Close mobile menu
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (hamburger) hamburger.classList.remove('active');
+                        if (dropdownMenu) dropdownMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        // Smooth scroll to section
+                        this.smoothScrollTo(targetSection);
+                        
+                        // Update active nav link
+                        this.updateActiveNavLink(link);
+                    }
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', this.throttle(() => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, 16));
+
+        // Update active nav link on scroll
+        this.setupScrollSpyNavigation();
+    }
+
+    // Scroll spy navigation
+    setupScrollSpyNavigation() {
+        const sections = document.querySelectorAll('.section[id]');
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+        const observerOptions = {
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const targetLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                    if (targetLink) {
+                        this.updateActiveNavLink(targetLink);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => navObserver.observe(section));
+    }
+
+    updateActiveNavLink(activeLink) {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => link.classList.remove('active'));
+        activeLink.classList.add('active');
+    }
+
+    // Smooth scroll implementation
+    smoothScrollTo(target) {
+        const targetOffset = target.offsetTop - 80; // Account for navbar height
+        const startPosition = window.pageYOffset;
+        const distance = targetOffset - startPosition;
+        const duration = 800;
+        let start = null;
+
+        function animation(currentTime) {
+            if (start === null) start = currentTime;
+            const timeElapsed = currentTime - start;
+            const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        function easeInOutQuad(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+    }
+
     // Initialize Animations
     initializeAnimations() {
-        // Initialize keyframe animations for CSS
         this.createKeyframeAnimations();
-        
-        // Initialize scroll-triggered animations
         this.initializeScrollAnimations();
-        
-        // Initialize hover animations
         this.initializeHoverAnimations();
     }
 
     createKeyframeAnimations() {
-        // This method ensures all CSS animations are ready
         const style = document.createElement('style');
         style.textContent = `
             @keyframes aiIndicator {
@@ -80,7 +517,6 @@ class PortfolioApp {
     }
 
     initializeScrollAnimations() {
-        // Additional scroll-based animation setup
         const sections = document.querySelectorAll('.section');
         sections.forEach(section => {
             section.classList.add('animate-on-scroll');
@@ -88,11 +524,11 @@ class PortfolioApp {
     }
 
     initializeHoverAnimations() {
-        // Setup interactive hover effects
-        const cards = document.querySelectorAll('.work-card, .project-card, .stat-item');
+        const cards = document.querySelectorAll('.work-card, .project-card, .stat-item, .achievement-card, .certification-card');
         cards.forEach(card => {
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-5px) scale(1.02)';
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.320, 1)';
             });
             
             card.addEventListener('mouseleave', () => {
@@ -101,131 +537,19 @@ class PortfolioApp {
         });
     }
 
-    // Mathematical/Code Cursor
-    initializeCursor() {
-        const cursor = document.createElement('div');
-        cursor.classList.add('custom-cursor');
-        cursor.innerHTML = `
-            <div class="cursor-main"></div>
-            <div class="cursor-calculation"></div>
-        `;
-        document.body.appendChild(cursor);
-
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
-        let trailTimeout;
-
-        // Math calculations and code snippets for hover states
-        const calculations = [
-            '∂L/∂θ = ∇J(θ)',
-            'π = 3.14159...',
-            'e^(iπ) + 1 = 0',
-            'φ = (1+√5)/2',
-            'σ(x) = 1/(1+e⁻ˣ)',
-            'loss ↓ 0.001',
-            'accuracy ↑ 97.3%',
-            'matrix_multiply()',
-            'neural_forward()',
-            'backprop_complete'
-        ];
-
-        let currentCalc = 0;
-
-        // Track mouse movement
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Create trailing code elements
-            this.createCodeTrail(e.clientX, e.clientY);
-        });
-
-        // Animate cursor with smooth following
-        const animateCursor = () => {
-            cursorX += (mouseX - cursorX) * 0.12;
-            cursorY += (mouseY - cursorY) * 0.12;
-            
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            
-            requestAnimationFrame(animateCursor);
-        };
-        animateCursor();
-
-        // Update calculation display
-        const calcDisplay = cursor.querySelector('.cursor-calculation');
-        if (calcDisplay) {
-            calcDisplay.textContent = calculations[currentCalc];
-        }
-
-        // Add cursor interactions
-        const interactiveElements = document.querySelectorAll('a, button, .nav-link, .cta-button, .project-card, .work-card, .skill-badge, .timeline-item');
-        
-        interactiveElements.forEach((element, index) => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('cursor-hover');
-                currentCalc = (currentCalc + 1) % calculations.length;
-                if (calcDisplay) {
-                    calcDisplay.textContent = calculations[currentCalc];
-                }
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('cursor-hover');
-            });
-
-            element.addEventListener('mousedown', () => {
-                cursor.classList.add('cursor-click');
-            });
-
-            element.addEventListener('mouseup', () => {
-                cursor.classList.remove('cursor-click');
-            });
-        });
-
-        // Hide default cursor
-        document.body.style.cursor = 'none';
-        document.querySelectorAll('*').forEach(el => {
-            el.style.cursor = 'none';
-        });
-    }
-
-    // Create trailing code elements
-    createCodeTrail(x, y) {
-        if (Math.random() > 0.85) { // Only create trails occasionally
-            const trail = document.createElement('div');
-            trail.classList.add('cursor-code-trail');
-            trail.style.left = x + 'px';
-            trail.style.top = y + 'px';
-            
-            const codeSnippets = ['0', '1', '{', '}', 'π', '∞', 'λ', 'Σ', '∇', '∂'];
-            trail.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-            
-            document.body.appendChild(trail);
-            
-            // Remove trail after animation
-            setTimeout(() => {
-                if (trail.parentNode) {
-                    trail.parentNode.removeChild(trail);
-                }
-            }, 1000);
-        }
-    }
-
-    // Teen Engineering + AI Loading Screen Management
+    // Loading Screen Management
     initializeLoading() {
         const loadingText = document.getElementById('loading-text');
         const progressText = document.querySelector('.progress-text');
+        const progressBar = document.querySelector('.progress-bar');
         
-        // AI Loading Messages
         const messages = [
             'Initializing AI systems...',
             'Loading neural networks...',
             'Compiling machine learning models...',
             'Optimizing tensor computations...',
             'Connecting to deep learning framework...',
+            'Calibrating matrix operations...',
             'AI systems online!'
         ];
         
@@ -233,14 +557,18 @@ class PortfolioApp {
         let progress = 0;
         
         const updateProgress = () => {
-            progress += Math.random() * 15 + 5;
+            progress += Math.random() * 12 + 8;
             if (progress > 100) progress = 100;
             
             if (progressText) {
                 progressText.textContent = `${Math.floor(progress)}%`;
             }
             
-            if (messageIndex < messages.length && Math.random() > 0.3) {
+            if (progressBar) {
+                progressBar.style.setProperty('--progress', `${progress}%`);
+            }
+            
+            if (messageIndex < messages.length && Math.random() > 0.4) {
                 if (loadingText) {
                     loadingText.textContent = messages[messageIndex];
                     messageIndex++;
@@ -248,7 +576,7 @@ class PortfolioApp {
             }
             
             if (progress < 100) {
-                setTimeout(updateProgress, 200 + Math.random() * 300);
+                setTimeout(updateProgress, 150 + Math.random() * 200);
             }
         };
         
@@ -260,10 +588,19 @@ class PortfolioApp {
         if (loadingScreen) {
             loadingScreen.classList.add('hidden');
             this.isLoading = false;
-            
-            // Start main animations
             this.startMainAnimations();
         }
+    }
+
+    startMainAnimations() {
+        // Initialize AOS (Animate On Scroll) equivalent
+        this.initializeAOS();
+        
+        // Start particle animations
+        this.animateParticles();
+        
+        // Start background math equations
+        this.animateBackgroundMath();
     }
 
     // Terminal Typing Animation
@@ -272,11 +609,17 @@ class PortfolioApp {
         if (!typedText) return;
 
         const commands = [
-            'import neural_network as nn',
-            'model = nn.create_ai_model()',
-            'model.load_intelligence()',
+            'import tensorflow as tf',
+            'import numpy as np',
+            'model = tf.keras.Sequential()',
+            'model.add(tf.keras.layers.Dense(128))',
+            'model.compile(optimizer="adam")',
+            'model.fit(X_train, y_train)',
+            'predictions = model.predict(X_test)',
+            'print("Model accuracy: 97.3%")',
+            'model.save("ai_model.h5")',
             'print("Hello, I\'m Chaitanya!")',
-            'ai_status = "Online"',
+            'ai_status = "Online and Ready"',
             'deploy_portfolio()'
         ];
 
@@ -286,7 +629,6 @@ class PortfolioApp {
 
         const typeCommand = () => {
             if (currentCommand >= commands.length) {
-                // Restart after a pause
                 setTimeout(() => {
                     currentCommand = 0;
                     currentChar = 0;
@@ -299,193 +641,63 @@ class PortfolioApp {
             const command = commands[currentCommand];
 
             if (isTyping && currentChar < command.length) {
-                // Typing effect
                 typedText.textContent = command.slice(0, currentChar + 1);
                 currentChar++;
-                setTimeout(typeCommand, Math.random() * 100 + 50); // Variable typing speed
+                setTimeout(typeCommand, Math.random() * 80 + 40);
             } else if (isTyping) {
-                // Finished typing, pause before deleting
                 isTyping = false;
                 setTimeout(typeCommand, 1500);
             } else if (currentChar > 0) {
-                // Deleting effect
                 typedText.textContent = command.slice(0, currentChar - 1);
                 currentChar--;
-                setTimeout(typeCommand, 30);
+                setTimeout(typeCommand, 25);
             } else {
-                // Finished deleting, move to next command
                 isTyping = true;
                 currentCommand++;
                 setTimeout(typeCommand, 500);
             }
         };
 
-        // Start typing after loading screen
         setTimeout(() => typeCommand(), 2500);
     }
 
     // Event Listeners
     setupEventListeners() {
-        // Scroll events
         window.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 16));
-        
-        // Resize events
         window.addEventListener('resize', this.debounce(this.handleResize.bind(this), 250));
-        
-        // Mouse events for parallax
         document.addEventListener('mousemove', this.throttle(this.handleMouseMove.bind(this), 16));
-        
-        // Keyboard events
         document.addEventListener('keydown', this.handleKeyDown.bind(this));
-        
-        // Touch events for mobile
-        document.addEventListener('touchstart', this.handleTouchStart.bind(this));
-        document.addEventListener('touchmove', this.handleTouchMove.bind(this));
     }
 
-    // Navigation
-    initializeNavigation() {
-        const navbar = document.getElementById('navbar');
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
+    handleScroll() {
+        this.scrollProgress = window.pageYOffset / (document.body.scrollHeight - window.innerHeight);
+        this.updateScrollProgress();
+    }
 
-        // Hamburger menu toggle
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
+    handleResize() {
+        if (this.matrixCanvas) {
+            this.matrixCanvas.width = this.matrixCanvas.offsetWidth;
+            this.matrixCanvas.height = this.matrixCanvas.offsetHeight;
         }
-
-        // Smooth scrolling for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    // Close mobile menu
-                    if (navMenu) navMenu.classList.remove('active');
-                    if (hamburger) hamburger.classList.remove('active');
-                    
-                    // Smooth scroll to section
-                    this.smoothScrollTo(targetSection);
-                    
-                    // Update active link
-                    this.updateActiveNavLink(link);
-                }
-            });
-        });
-
-        // Update navbar on scroll
-        window.addEventListener('scroll', () => {
-            if (navbar) {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }
-
-            // Update active navigation based on scroll position
-            this.updateActiveNavOnScroll();
-        });
     }
 
-    smoothScrollTo(element) {
-        const offsetTop = element.offsetTop - 80; // Account for navbar height
-        const startPosition = window.pageYOffset;
-        const distance = offsetTop - startPosition;
-        const duration = 1000;
-        let start = null;
+    handleMouseMove(e) {
+        this.mousePosition.x = e.clientX;
+        this.mousePosition.y = e.clientY;
+        this.updateParallaxElements();
+    }
 
-        const step = (timestamp) => {
-            if (!start) start = timestamp;
-            const progress = timestamp - start;
-            const percentage = Math.min(progress / duration, 1);
+    handleKeyDown(e) {
+        // Keyboard navigation
+        if (e.key === 'Escape') {
+            const navMenu = document.getElementById('nav-menu');
+            const hamburger = document.getElementById('hamburger');
+            const dropdownMenu = document.getElementById('dropdown-menu');
             
-            // Easing function (easeInOutCubic)
-            const ease = percentage < 0.5 
-                ? 4 * percentage * percentage * percentage 
-                : (percentage - 1) * (2 * percentage - 2) * (2 * percentage - 2) + 1;
-            
-            window.scrollTo(0, startPosition + distance * ease);
-            
-            if (progress < duration) {
-                window.requestAnimationFrame(step);
-            }
-        };
-
-        window.requestAnimationFrame(step);
-    }
-
-    updateActiveNavLink(activeLink) {
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-        activeLink.classList.add('active');
-    }
-
-    updateActiveNavOnScroll() {
-        const sections = document.querySelectorAll('.section[id]');
-        const scrollPos = window.scrollY + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
-                if (activeLink) {
-                    this.updateActiveNavLink(activeLink);
-                }
-            }
-        });
-    }
-
-    // Scroll-based Animations
-    setupIntersectionObserver() {
-        const options = {
-            threshold: [0.1, 0.3, 0.6, 1.0],
-            rootMargin: '-50px'
-        };
-
-        this.intersectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Add animation classes
-                    entry.target.classList.add('animate-in');
-                    
-                    // Handle specific animations
-                    this.handleElementAnimation(entry.target);
-                }
-            });
-        }, options);
-
-        // Observe all animatable elements
-        const animatableElements = document.querySelectorAll('[data-aos]');
-        animatableElements.forEach(el => {
-            this.intersectionObserver.observe(el);
-        });
-    }
-
-    handleElementAnimation(element) {
-        // Animate statistics counters
-        if (element.querySelector('.stat-number')) {
-            this.animateStats(element);
-        }
-
-        // Animate skill badges
-        if (element.querySelector('.skill-badge')) {
-            this.animateSkills(element);
-        }
-
-        // Animate project cards
-        if (element.classList.contains('project-card')) {
-            this.animateProjectCard(element);
+            if (navMenu) navMenu.classList.remove('active');
+            if (hamburger) hamburger.classList.remove('active');
+            if (dropdownMenu) dropdownMenu.classList.remove('active');
+            document.body.style.overflow = '';
         }
     }
 
@@ -493,479 +705,280 @@ class PortfolioApp {
     initializeStats() {
         const statNumbers = document.querySelectorAll('.stat-number[data-count]');
         
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                stat.textContent = Math.floor(current);
-            }, 20);
-        });
-    }
-
-    animateStats(container) {
-        const statNumbers = container.querySelectorAll('.stat-number[data-count]');
-        
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
+        const animateNumber = (element) => {
+            const target = parseInt(element.getAttribute('data-count'));
             const duration = 2000;
             const startTime = performance.now();
             
-            const animate = (currentTime) => {
+            const updateNumber = (currentTime) => {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 
-                // Easing function
-                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(target * easeOutCubic);
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(easeOutQuart * target);
                 
-                stat.textContent = current;
+                element.textContent = current;
                 
                 if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    stat.textContent = target;
+                    requestAnimationFrame(updateNumber);
                 }
             };
             
-            requestAnimationFrame(animate);
-        });
+            requestAnimationFrame(updateNumber);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumber(entry.target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(stat => statsObserver.observe(stat));
     }
 
-    // Skills Animation
-    animateSkills(container) {
-        const skillBadges = container.querySelectorAll('.skill-badge');
-        
-        skillBadges.forEach((badge, index) => {
-            setTimeout(() => {
-                badge.style.transform = 'translateY(0) scale(1)';
-                badge.style.opacity = '1';
-            }, index * 100);
-        });
-    }
-
-    // Project Filtering
+    // Projects Initialization
     initializeProjects() {
-        const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-                this.filterProjects(filter);
-                
-                // Update active filter button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+        
+        projectCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            // Add stagger animation
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-12px) rotateX(5deg)';
+                card.style.boxShadow = '0 20px 40px rgba(255, 107, 53, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0)';
+                card.style.boxShadow = '';
             });
         });
     }
 
-    filterProjects(filter) {
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        projectCards.forEach(card => {
-            const categories = card.getAttribute('data-category');
-            
-            if (filter === 'all' || categories.includes(filter)) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeInUp 0.5s ease forwards';
-            } else {
-                card.style.animation = 'fadeOut 0.3s ease forwards';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
-        });
-    }
+    // Testimonials Slider
+    initializeTestimonials() {
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const navDots = document.querySelectorAll('.nav-dot');
+        let currentTestimonial = 0;
 
-    animateProjectCard(card) {
-        card.style.transform = 'translateY(0)';
-        card.style.opacity = '1';
+        const showTestimonial = (index) => {
+            testimonialCards.forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+            });
+            
+            navDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        };
+
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
     }
 
     // Parallax Effects
     initializeParallax() {
-        const parallaxElements = document.querySelectorAll('.geometric-shape, .floating-equation');
+        const parallaxElements = document.querySelectorAll('.floating-equation, .geometric-shape, .particle');
         
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
+        parallaxElements.forEach(element => {
+            const speed = Math.random() * 0.5 + 0.1;
+            element.setAttribute('data-speed', speed);
+        });
+    }
+
+    updateParallaxElements() {
+        const parallaxElements = document.querySelectorAll('[data-speed]');
+        
+        parallaxElements.forEach(element => {
+            const speed = parseFloat(element.getAttribute('data-speed'));
+            const x = (this.mousePosition.x - window.innerWidth / 2) * speed * 0.1;
+            const y = (this.mousePosition.y - window.innerHeight / 2) * speed * 0.1;
             
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.2 + (index * 0.1);
-                element.style.transform = `translateY(${parallax * speed}px)`;
+            element.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    }
+
+    // AOS (Animate On Scroll) Implementation
+    initializeAOS() {
+        const aosElements = document.querySelectorAll('[data-aos]');
+        
+        const aosObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('aos-animate');
+                } else {
+                    entry.target.classList.remove('aos-animate');
+                }
             });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        aosElements.forEach(element => {
+            aosObserver.observe(element);
         });
     }
 
-    handleMouseMove(e) {
-        this.mousePosition.x = e.clientX / window.innerWidth;
-        this.mousePosition.y = e.clientY / window.innerHeight;
-        
-        // Update AI particles based on mouse position
-        this.updateParticlePositions();
-        
-        // Update floating elements
-        this.updateFloatingElements();
-    }
-
-    updateParticlePositions() {
-        const particles = document.querySelectorAll('.particle');
-        
-        particles.forEach((particle, index) => {
-            const x = this.mousePosition.x * 20 - 10;
-            const y = this.mousePosition.y * 20 - 10;
-            const delay = index * 0.1;
-            
-            particle.style.transform = `translate(${x}px, ${y}px)`;
-            particle.style.transitionDelay = `${delay}s`;
-        });
-    }
-
-    updateFloatingElements() {
-        const equations = document.querySelectorAll('.floating-equation');
-        
-        equations.forEach((equation, index) => {
-            const x = (this.mousePosition.x - 0.5) * 30;
-            const y = (this.mousePosition.y - 0.5) * 30;
-            const multiplier = (index + 1) * 0.5;
-            
-            equation.style.transform = `translate(${x * multiplier}px, ${y * multiplier}px)`;
-        });
-    }
-
-    // Scroll Progress and Scroll-to-Top
-    handleScroll() {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        this.scrollProgress = scrollTop / docHeight;
-        
-        // Update scroll-to-top button
-        this.updateScrollToTop();
-        
-        // Update any scroll-based animations
-        this.updateScrollAnimations();
-    }
-
-    updateScrollToTop() {
-        const scrollBtn = document.getElementById('scrollToTop');
-        if (scrollBtn) {
-            if (window.scrollY > 300) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
-            }
-        }
-    }
-
-    updateScrollAnimations() {
-        // Animate elements based on scroll position
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
-        
-        animatedElements.forEach(element => {
-            const elementTop = element.offsetTop;
-            const elementHeight = element.offsetHeight;
-            const windowHeight = window.innerHeight;
-            const scrollTop = window.scrollY;
-            
-            if (scrollTop > elementTop - windowHeight + elementHeight / 4) {
-                element.classList.add('animated');
-            }
-        });
-    }
-
-    // Initialize scroll-to-top functionality
-    startMainAnimations() {
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        if (scrollToTopBtn) {
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+    setupIntersectionObserver() {
+        this.intersectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
             });
-        }
+        }, { threshold: 0.1 });
+
+        const observeElements = document.querySelectorAll('.section, .work-card, .project-card');
+        observeElements.forEach(el => this.intersectionObserver.observe(el));
     }
 
-    // Accessibility and Keyboard Navigation
     setupKeyboardNavigation() {
         document.addEventListener('keydown', (e) => {
-            // Escape key closes mobile menu
-            if (e.key === 'Escape') {
-                const navMenu = document.getElementById('nav-menu');
-                const hamburger = document.getElementById('hamburger');
+            if (e.altKey) {
+                const sections = document.querySelectorAll('.section[id]');
+                let currentSection = 0;
                 
-                if (navMenu && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100) currentSection = index;
+                });
+
+                if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+                    e.preventDefault();
+                    this.smoothScrollTo(sections[currentSection + 1]);
+                } else if (e.key === 'ArrowUp' && currentSection > 0) {
+                    e.preventDefault();
+                    this.smoothScrollTo(sections[currentSection - 1]);
                 }
-            }
-            
-            // Arrow keys for navigation
-            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-                e.preventDefault();
-                this.navigateWithKeyboard(e.key === 'ArrowDown' ? 'next' : 'prev');
             }
         });
     }
 
-    navigateWithKeyboard(direction) {
-        const sections = document.querySelectorAll('.section[id]');
-        const currentScroll = window.scrollY + window.innerHeight / 2;
-        let targetSection = null;
-        
-        if (direction === 'next') {
-            for (let section of sections) {
-                if (section.offsetTop > currentScroll) {
-                    targetSection = section;
-                    break;
-                }
-            }
-        } else {
-            for (let i = sections.length - 1; i >= 0; i--) {
-                if (sections[i].offsetTop < currentScroll - 100) {
-                    targetSection = sections[i];
-                    break;
-                }
-            }
-        }
-        
-        if (targetSection) {
-            this.smoothScrollTo(targetSection);
+    updateScrollProgress() {
+        const progressElement = document.querySelector('.scroll-progress');
+        if (progressElement) {
+            progressElement.style.width = `${this.scrollProgress * 100}%`;
         }
     }
 
-    // Touch Events for Mobile
-    handleTouchStart(e) {
-        this.touchStartY = e.touches[0].clientY;
+    animateParticles() {
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+            particle.style.animationDelay = `${index * 2}s`;
+        });
     }
 
-    handleTouchMove(e) {
-        if (!this.touchStartY) return;
-        
-        const touchY = e.touches[0].clientY;
-        const diffY = this.touchStartY - touchY;
-        
-        // Handle touch-based interactions
-        if (Math.abs(diffY) > 50) {
-            // Trigger animations or effects based on swipe
-            this.handleSwipeGesture(diffY > 0 ? 'up' : 'down');
-            this.touchStartY = null;
-        }
+    animateBackgroundMath() {
+        const equations = document.querySelectorAll('.floating-equation');
+        equations.forEach((eq, index) => {
+            eq.style.animationDelay = `${index * 3}s`;
+        });
     }
 
-    handleSwipeGesture(direction) {
-        // Add swipe-based functionality if needed
-        console.log(`Swiped ${direction}`);
-    }
-
-    // Utility Functions
-    throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
+    // Utility functions
+    throttle(func, delay) {
+        let timeoutId;
+        let lastExecTime = 0;
+        return function (...args) {
+            const currentTime = Date.now();
+            
+            if (currentTime - lastExecTime > delay) {
+                func.apply(this, args);
+                lastExecTime = currentTime;
+            } else {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                    lastExecTime = Date.now();
+                }, delay - (currentTime - lastExecTime));
             }
         };
     }
 
     debounce(func, delay) {
         let timeoutId;
-        return function() {
-            const context = this;
-            const args = arguments;
+        return function (...args) {
             clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => func.apply(context, args), delay);
+            timeoutId = setTimeout(() => func.apply(this, args), delay);
         };
     }
-
-    handleResize() {
-        // Handle responsive updates
-        this.updateParticlePositions();
-        this.updateFloatingElements();
-    }
-
-    handleKeyDown(e) {
-        // Additional keyboard shortcuts
-        if (e.ctrlKey || e.metaKey) {
-            switch(e.key) {
-                case 'k':
-                    e.preventDefault();
-                    // Focus search or navigation
-                    document.querySelector('.nav-link')?.focus();
-                    break;
-            }
-        }
-    }
-
-    // Advanced Animations
-    createFloatingParticles() {
-        const particleContainer = document.querySelector('.ai-particles');
-        if (!particleContainer) return;
-
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-            particleContainer.appendChild(particle);
-        }
-    }
-
-    // Initialize Testimonial Slider
-    initializeTestimonials() {
-        const testimonialTrack = document.querySelector('.testimonial-track');
-        if (!testimonialTrack) return;
-
-        // Clone testimonials for infinite scroll
-        const testimonials = testimonialTrack.children;
-        const testimonialArray = Array.from(testimonials);
-        
-        testimonialArray.forEach(testimonial => {
-            const clone = testimonial.cloneNode(true);
-            testimonialTrack.appendChild(clone);
-        });
-    }
-
-    // Performance optimization
-    optimizePerformance() {
-        // Lazy load images
-        const images = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        images.forEach(img => imageObserver.observe(img));
-    }
-
-    // Initialize everything
-    initializeAll() {
-        this.createFloatingParticles();
-        this.initializeTestimonials();
-        this.optimizePerformance();
-    }
 }
 
-// Initialize the portfolio app when DOM is ready
-const portfolioApp = new PortfolioApp();
-
-// Additional utility functions for enhanced interactivity
-document.addEventListener('DOMContentLoaded', function() {
-    // Add hover effects to cards
-    const cards = document.querySelectorAll('.work-card, .project-card, .achievement-card, .skill-category');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
-    // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.cta-button, .filter-btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-
-    // Initialize advanced features
-    portfolioApp.initializeAll();
+// Initialize the portfolio app
+document.addEventListener('DOMContentLoaded', () => {
+    new PortfolioApp();
 });
 
-// Add CSS for ripple effect dynamically
-const rippleCSS = `
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    pointer-events: none;
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-}
+// Performance optimization
+window.addEventListener('load', () => {
+    // Add loaded class for additional animations
+    document.body.classList.add('loaded');
+    
+    // Preload critical resources
+    const preloadLinks = document.querySelectorAll('link[rel="preload"]');
+    preloadLinks.forEach(link => {
+        const resource = document.createElement(link.as || 'link');
+        resource.href = link.href;
+        if (link.as === 'font') resource.crossOrigin = 'anonymous';
+    });
+});
 
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
+// Handle browser back/forward
+window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.section) {
+        const section = document.getElementById(e.state.section);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
     }
-}
+});
 
-@keyframes fadeOut {
-    from {
+// Add CSS for improved cursor trail
+const additionalStyles = document.createElement('style');
+additionalStyles.textContent = `
+    .cursor-code-trail {
+        animation: codeTrailFade 1s ease-out forwards;
+        font-weight: bold;
+        text-shadow: 0 0 5px currentColor;
+    }
+    
+    .dropdown-menu.active {
         opacity: 1;
+        visibility: visible;
         transform: translateY(0);
     }
-    to {
-        opacity: 0;
-        transform: translateY(20px);
+    
+    .progress-bar {
+        background: linear-gradient(90deg, var(--accent-orange), var(--accent-cyan));
+        width: var(--progress, 0%);
+        transition: width 0.3s ease;
     }
-}
-`;
-
-// Inject CSS
-const style = document.createElement('style');
-style.textContent = rippleCSS;
-document.head.appendChild(style);
-
-// Add intersection observer for better performance
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
+    
+    @media (max-width: 768px) {
+        .nav-dropdown .dropdown-menu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            margin-top: 0.5rem;
         }
-    });
-}, observerOptions);
-
-// Observe all sections
-document.querySelectorAll('.section').forEach(section => {
-    observer.observe(section);
-});
-
-// Export for testing
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = PortfolioApp;
-}
+    }
+`;
+document.head.appendChild(additionalStyles);
