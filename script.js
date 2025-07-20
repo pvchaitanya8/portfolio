@@ -18,6 +18,10 @@ class PortfolioApp {
         this.matrixDrops = [];
         this.testimonialInterval = null;
         this.totalTestimonials = 0;
+        this.isMobileMenuOpen = false;
+        this.isDropdownOpen = false;
+        this.lastScrollY = 0;
+        this.isScrolling = false;
         
         this.init();
     }
