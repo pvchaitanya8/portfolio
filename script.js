@@ -298,30 +298,58 @@ class PortfolioApp {
             
             // Draw connections
             this.connections.forEach(conn => {
+                // === SETTINGS (Adjust these values) ===
+                const speed = 0.02;       // To go faster, increase this number (e.g., 0.05). To go slower, decrease it (e.g., 0.01).
+                const pulseLength = 0.15; // To make the pulse longer, increase this number (e.g., 0.2). To make it shorter, decrease it (e.g., 0.05).
+                // =====================================
+
                 const fromNode = this.nodes[conn.from];
                 const toNode = this.nodes[conn.to];
-                
-                // Animate signal propagation
-                conn.activity += 0.03;
-                if (conn.activity > 1) conn.activity = 0;
-                
-                const gradient = this.neuralCtx.createLinearGradient(
-                    fromNode.x, fromNode.y, toNode.x, toNode.y
-                );
-                
-                const alpha = fromNode.activation * 0.6;
-                gradient.addColorStop(0, `rgba(0, 255, 255, ${alpha})`);
-                gradient.addColorStop(conn.activity, `rgba(0, 255, 65, ${alpha * 1.5})`);
-                gradient.addColorStop(1, `rgba(0, 255, 255, ${alpha * 0.3})`);
-                
-                this.neuralCtx.strokeStyle = gradient;
-                this.neuralCtx.lineWidth = Math.abs(conn.weight) * 2;
+                const alpha = fromNode.activation * 0.5;
+
+                // 1. Draw the static, underlying connection line in blue
                 this.neuralCtx.beginPath();
                 this.neuralCtx.moveTo(fromNode.x, fromNode.y);
                 this.neuralCtx.lineTo(toNode.x, toNode.y);
+                this.neuralCtx.strokeStyle = `rgba(0, 132, 255, ${alpha})`; // Faint blue
+                this.neuralCtx.lineWidth = 1.5;
                 this.neuralCtx.stroke();
+
+                // 2. Animate the green "pulse"
+                conn.activity += speed;
+                // Reset the pulse after it has fully traveled off the line
+                if (conn.activity > 1 + pulseLength) {
+                    conn.activity = 0;
+                }
+
+                // Calculate the head and tail positions for the new, longer pulse
+                const headPos = conn.activity;
+                const tailPos = headPos - pulseLength;
+                
+                // Calculate coordinates on the line
+                const headX = fromNode.x + (toNode.x - fromNode.x) * Math.min(1, Math.max(0, headPos));
+                const headY = fromNode.y + (toNode.y - fromNode.y) * Math.min(1, Math.max(0, headPos));
+                const tailX = fromNode.x + (toNode.x - fromNode.x) * Math.min(1, Math.max(0, tailPos));
+                const tailY = fromNode.y + (toNode.y - fromNode.y) * Math.min(1, Math.max(0, tailPos));
+
+                // Draw the pulse only if it's visible
+                if (tailPos < 1 && headPos > 0) {
+                    // Draw the longer pulse as a line with a glow effect
+                    this.neuralCtx.beginPath();
+                    this.neuralCtx.moveTo(tailX, tailY);
+                    this.neuralCtx.lineTo(headX, headY);
+                    this.neuralCtx.strokeStyle = `rgba(0, 255, 65, 0.9)`; // Bright green
+                    this.neuralCtx.lineWidth = 4; // A thicker line for the pulse
+                    this.neuralCtx.lineCap = 'round'; // Creates smooth, rounded ends
+                    this.neuralCtx.shadowColor = 'rgba(0, 255, 65, 1)';
+                    this.neuralCtx.shadowBlur = 10;
+                    this.neuralCtx.stroke();
+
+                    // Reset shadow for other drawing operations
+                    this.neuralCtx.shadowBlur = 0;
+                }
             });
-            
+
             // Draw nodes
             this.nodes.forEach(node => {
                 const radius = 8 + node.activation * 6;

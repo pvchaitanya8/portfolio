@@ -1326,9 +1326,8 @@ body {
 
 .tech-tag {
     padding: 0.25rem 0.75rem;
-    background: rgba(255, 107, 53, 0.1);
+    background: rgba(53, 134, 255, 0.1);
     color: var(--accent-orange);
-    border: 1px solid rgba(255, 107, 53, 0.3);
     border-radius: 12px;
     font-size: 0.8rem;
     font-family: var(--font-code);
@@ -1421,12 +1420,20 @@ body {
     margin-top: 1rem;
 }
 
+.proj_stat {
+    padding: 0.5rem 1rem;
+    background: rgba(53, 134, 255, 0.11);
+    color: var(--accent-primary);
+    border-radius: 15px;
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+}
+
 .stat {
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(53, 134, 255, 0.1);
     color: var(--accent-primary);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: var(--border-radius);
+    border-radius: 50px;
     font-family: var(--font-code);
     font-size: 0.9rem;
 }
@@ -1478,16 +1485,6 @@ body {
     position: absolute;
     top: 1rem;
     left: 1rem;
-}
-
-.tech-tag {
-    background: var(--card-bg);
-    color: var(--accent-primary);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-family: var(--font-code);
-    border: 1px solid var(--accent-primary);
 }
 
 .project-content {
@@ -1637,9 +1634,8 @@ body {
 
 .volunteer-impact span {
     padding: 0.5rem 1rem;
-    background: rgba(29, 29, 29, 0.774);
-    color: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--accent-primary);
+    background: rgba(53, 134, 255, 0.075);
+    color: var(--accent-primary);
     border-radius: 8px;
     font-family: var(--font-code);
     font-size: 0.9rem;
@@ -1983,7 +1979,7 @@ body {
 }
 
 .tech-badge {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(53, 134, 255, 0.199);
     color: var(--accent-primary);
     padding: 0.3rem 0.6rem;
     border-radius: 12px;
