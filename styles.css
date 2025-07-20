@@ -7,10 +7,10 @@
     --card-bg: rgba(26, 26, 26, 0.9);
     
     /* Tech Palette with Subtle Colors */
-    --accent-primary: #00ffff;    /* Cyan accent */
+    --accent-primary: #0084ff;    /* Electric Blue */
     --accent-secondary: #cccccc;  /* Secondary light gray */
-    --accent-tertiary: #00ff41;   /* Green accent */
-    --accent-orange: #ff6b35;     /* Orange accent */
+    --accent-tertiary: #00bfff;   /* Deep Sky Blue */
+    --accent-orange: #1e90ff;     /* Dodger Blue */
     --accent-quaternary: #666666; /* Quaternary dark gray */
     --text-primary: #ffffff;
     --text-secondary: #e0e0e0;
@@ -19,10 +19,10 @@
     --text-math: #ffffff;
     
     /* Tech Gradients with Subtle Colors */
-    --gradient-primary: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
-    --gradient-secondary: linear-gradient(135deg, #00ff41 0%, #cccccc 100%);
-    --gradient-ai: linear-gradient(135deg, #00ffff 0%, #cccccc 50%, #00ff41 100%);
-    --gradient-code: linear-gradient(90deg, #ff6b35 0%, #ffffff 100%);
+    --gradient-primary: linear-gradient(135deg, #007bff 0%, #ffffff 100%);
+    --gradient-secondary: linear-gradient(135deg, #00bfff 0%, #cccccc 100%);
+    --gradient-ai: linear-gradient(135deg, #007bff 0%, #cccccc 50%, #00bfff 100%);
+    --gradient-code: linear-gradient(90deg, #1e90ff 0%, #ffffff 100%);
     
     /* Mathematical/AI Constants */
     --golden-ratio: 1.618;
