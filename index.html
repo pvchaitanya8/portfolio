@@ -5,320 +5,1198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaitanya's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon_logo.png" type="image/png">
 </head>
 <body>
-    <div id="loading">
-        <div class="loader"></div>
+    <!-- Loading Animation - Teen Engineering + AI Inspired -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <!-- AI Processing Grid -->
+            <div class="ai-processor">
+                <div class="processor-grid">
+                    <div class="grid-cell" data-delay="0"></div>
+                    <div class="grid-cell" data-delay="100"></div>
+                    <div class="grid-cell" data-delay="200"></div>
+                    <div class="grid-cell" data-delay="300"></div>
+                    <div class="grid-cell" data-delay="400"></div>
+                    <div class="grid-cell" data-delay="500"></div>
+                    <div class="grid-cell" data-delay="600"></div>
+                    <div class="grid-cell" data-delay="700"></div>
+                    <div class="grid-cell" data-delay="800"></div>
+                </div>
+                <div class="processing-bars">
+                    <div class="bar" style="--delay: 0.1s"></div>
+                    <div class="bar" style="--delay: 0.2s"></div>
+                    <div class="bar" style="--delay: 0.3s"></div>
+                    <div class="bar" style="--delay: 0.4s"></div>
+                    <div class="bar" style="--delay: 0.5s"></div>
+                </div>
+            </div>
+            
+            <!-- Loading Text with Code Effect -->
+            <div class="loading-terminal">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="loading-text" id="loading-text">Initializing AI systems...</span>
+                    <span class="cursor-blink">_</span>
+                </div>
+                <div class="loading-progress">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">0%</span>
+                </div>
+            </div>
+            
+            <!-- Mathematical Equations -->
+            <div class="code-snippet">
+                <div class="code-line">
+                    <span class="code-comment">// Neural Network Forward Pass</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-keyword">def</span> 
+                    <span class="code-function">forward</span><span class="code-bracket">(</span><span class="code-param">x</span><span class="code-bracket">):</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-indent">    </span><span class="code-keyword">return</span> 
+                    <span class="code-function">softmax</span><span class="code-bracket">(</span><span class="code-param">W @ x + b</span><span class="code-bracket">)</span>
+                </div>
+            </div>
+        </div>
     </div>
-    
-<!--     <header>
-        <div class="menu-icon" onclick="toggleSidePanel()">☰</div> <nav id="sidePanel"> <ul>
-                </ul>
-        </nav>
-    </header> -->
-    
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#work">Work Experience</a></li>
-                <li><a href="#skills">Skills & Proficiencies</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#complements">Complements</a></li>
-                <li><a href="#profiles">Profiles</a></li>
-            </ul>
-        </nav>
-    </header>
-   
-    <div class="container">
-        <section id="about" class="section-container">
-            <div class="container-title">
-                <h1>Hi, I'm P. V. Chaitanya 👋</h1>
-            </div>
-            <div class="profile-section">
-                <img src="images/pic.png" alt="Profile Picture" class="profile-pic">
-                <div class="about-me">
-                    <p style="text-align: justify;">I'm passionate about AI/ML and love using my skills to tackle real-world challenges. I'm proficient in Python, TensorFlow, and have a track record of successful AI/ML projects. Always eager to learn and collaborate, I'm looking for exciting opportunities to contribute to innovative AI/ML initiatives. Feel free to reach out!</p>
-                </div>
-            </div>
-            <h2>To Contact:</h2>
-            <div class="logo-container">
-                <a href="https://wa.me/+919494771283?text=Hello!%20Chaitanya" target="_blank">
-                    <img src="images/whatsapp.png" alt="whatsapp">
-                </a>
-                <a href="mailto:venkatachaitanya373@gmail.com" target="_blank">
-                    <img src="images/mail.png" alt="mail">
-                </a>
-                <a target="_blank" href="files/P V Chaitanya RESUME.pdf" download="Chaitanya_RESUME.pdf">My Resume</a>
-            </div>
-        </section>
 
-        <section id="work" class="section-container">
-            <h2>Work Experience:</h2>
-            <ul class="work-experience-list">
-                <li>
-                    <h3>
-                        Associate Software Engineer | <a target="_blank" href="https://innocito.com/"> Innocito</a> | April 2025 – Present:
-                        <a target="_blank" href="https://innocito.com/"> <img src="images/innocito.png" alt="Company Logo" class="logo"> </a>
-                    </h3>
-                    <p style="text-align: justify;">- As an Associate Software Engineer at Innocito, I'm working on research and development in generative AI, focusing on NLP, computer vision, and multimodal AI applications.<p style="text-align: justify;">
-                    <p style="text-align: justify;">- Built a real-time AI Voice Agent with conversational intelligence, reducing latency by <strong>3 seconds per request</strong> for more natural experiences.<p style="text-align: justify;">
-                    <p style="text-align: justify;"><strong>Tech Stack:</strong> Python, Machine Learning, Deep Learning, Gen AI, Multimodal LLMs, PyTorch, NLP, Computer Vision<p style="text-align: justify;">
-                </li>
-                <li>
-                    <h3>
-                        AI Software Developer | <a target="_blank" href="https://www.linkedin.com/in/chaitanya-venkata-a5a908212/"> Freelancing</a> | March 2024 – February 2025: 
-                        <a target="_blank" href="https://www.linkedin.com/in/chaitanya-venkata-a5a908212/"> <img src="images/working.png" alt="Company Logo" class="logo"> </a>
-                    </h3>
-                    <p style="text-align: justify;"><strong>Client: </strong>Hooman Digital</p>
-                    <p style="text-align: justify;">- Fine-tuned AI agents for AI-powered social media, cutting manual task time by <strong>30% via automation</strong> and delivering ahead of schedule.</p>
-                    <p style="text-align: justify;"><strong>Client: </strong>Persist Ventures</p>
-                    <p style="text-align: justify;">- Built a fully automated AI-powered GIF Studio, <strong>boosting accuracy (95%), speed (5×), & user engagement (100×)</strong>.<p style="text-align: justify;">
-                    <p style="text-align: justify;"><strong>Client: </strong>AI Gen media</p>
-                    <p style="text-align: justify;">- Built an AI-driven text-to-video tool ahead of schedule, achieving <strong>visual consistency (80%)</strong> from concept to production.<p style="text-align: justify;">
-     
-                    <p style="text-align: justify;">- <strong>Tech Stack:</strong> Python, OpenCV, MoviePy, Streamlit, FastAPI, Selenium, Google OAuth, Web Scraping, NLP, Prompt Engineering, Gen AI, Multimodal LLMs, Crew AI.<p style="text-align: justify;">
-                </li>
-                <li>
-                    <h3>
-                        SDE AI/ML Intern | <a target="_blank" href="https://www.springworks.in"> Spring Works</a> | July 2023 - September 2023: 
-                        <a target="_blank" href="https://www.springworks.in"> <img src="images/springworks_logo.png" alt="Company Logo" class="logo"> </a>
-                    </h3>
-                    <p style="text-align: justify;">- Increased chatbot <strong>test coverage from 30% to 75%</strong> through Python test development.<p style="text-align: justify;">
-                    <p style="text-align: justify;">- Collaborated with fellow interns to develop successful Proofs of Concept (POCs).<p style="text-align: justify;">
-                    <p style="text-align: justify;"><strong>Tech Stack:</strong> Python, Pytest, NLP, LLMs, LangChain, LlamaIndex, Vector Database<p style="text-align: justify;">
-                </li>
-                <li>
-                    <h3>
-                        AI/ML Intern | <a target="_blank" href="https://technicalhub.io"> Technical Hub</a> | July - Nov 2022 & May - July 2023: 
-                        <a target="_blank" href="https://technicalhub.io"> <img src="images/THub_logo.png" alt="Company Logo" class="logo"> </a>
-                    </h3>
-                    <p style="text-align: justify;">- Developed and deployed ML models, increasing model <strong>accuracy by 90%</strong>.<p style="text-align: justify;">
-                    <p style="text-align: justify;">- Mentored new interns, providing guidance and assistance with project blockers.<p style="text-align: justify;">
-                    <p style="text-align: justify;"><strong>Tech Stack:</strong> Python, Machine Learning, Deep Learning, TensorFlow, NLP, LLMs, Computer Vision.<p style="text-align: justify;">
-                </li>
-            </ul>
-        </section>
-
-        <section id="skills" class="section-container">
-            <h2>Skills & Proficiencies:</h2>
-            <ul class="work-experience-list">
-                <li>
-                    <h3>Programming Languages: </h3>
-                    <p style="text-align: justify;">Python, C/C++</p>
-                </li>
-                <li>
-                    <h3>Technologies & Proficiencies: </h3>
-                    <p style="text-align: justify;">Machine Learning, Deep Learning, Generative AI, AI Agents, RAG</p>
-                </li>
-                <li>
-                    <h3>Frameworks & Tools: </h3>
-                    <p style="text-align: justify;"> PyTorch, LangChain, FastAPI, SQL, NoSQL Pytest, Streamlit, Git</p>
-                </li>
-            </ul>
-        </section>
-
-        <section id="education" class="section-container">
-            <h2>Education:</h2>
-            <ul class="work-project-list">
-                <li>
-                    <h3>Bachelor's degree in Computer Science Engineering: </h3>
-                    <p style="text-align: justify;">Graduated in 2024 with a Bachelor's degree in Computer Science and Engineering from Aditya College of Engineering & Technology.</p>
-                </li>
-            </ul>
-        </section>
-
-        <section id="projects" class="section-container">
-            <h2>Projects:</h2>
-            <div class="project-container">
-                <div class="work-project-card">
-                    <h3>ED AI:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/Ed-AI">GitHub</a></p>
-                    <img src="images/image9.jpg" alt="images/image9">
-                    <p style="text-align: justify;">ED AI is an AI-powered educational assistant that enhances learning with personalized course recommendations, Socratic method chat, and mock interview simulations, addressing teaching and learning challenges.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>AI-Powered Video to GIF:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/AI-Powered-Video-to-GIF">GitHub</a></p>
-                    <img src="images/image8.jpg" alt="images/image8">
-                    <p style="text-align: justify;">This Streamlit web app lets users automatically create text-overlay GIFs from videos. It transcribes audio, identifies key moments, and generates GIFs displaying transcribed words at those moments.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>Story Book AI:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/Story-AI">GitHub</a></p>
-                    <img src="images/image7.jpg" alt="images/image7">
-                    <p style="text-align: justify;">This project explores transforming textual narratives like story scripts and novels into visual representations. It achieves this through a sequence of images, capturing the essence of key scenes and characters.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>AI-Enhanced Surveillance:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/AI_Enhanced_Surveillance">GitHub</a></p>
-                    <img src="images/image1.jpg" alt="images/image1">
-                    <p style="text-align: justify;">Automating surveillance, the Face Recognition System scans live camera feeds for specific individuals via facial recognition. It detects faces, alerts upon matches in its database, streamlining surveillance.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>LLM-powered Database Assistant:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/AI-powered-Assistant-">GitHub</a></p>
-                    <img src="images/image2.jpg" alt="images/image2">
-                    <p style="text-align: justify;">Utilizing an open-source Large Language Model, our custom chatbot excels in natural conversations, seamlessly integrating with a tailored Database for comprehensive knowledge and personalized interactions..</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>License Plate Detection:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/License_Plate_Detection">GitHub</a></p>
-                    <img src="images/image3.jpg" alt="image.png">
-                    <p style="text-align: justify;">YOLOv5 is used for License Plate Detection, employing machine learning to identify license plates in images. Its web interface allows easy media upload and processing, providing the count of detected Yellow plates.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>Stock Price Prediction:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/Stock-Price-prediction-using-LSTM-V1#project-name-stock-price-prediction-using-lstm-v1">GitHub</a></p>
-                    <img src="images/image4.jpg" alt="images/image4">
-                    <p style="text-align: justify;">By Utilizing LSTM algorithm, this project predicts stock prices, aiding investors with informed decisions, steering clear of unreliable sources. Also developed a Flask-powered web app employing HTML/CSS for accessibility.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>Article Classifier & Database:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/News-Classifier">GitHub</a></p>
-                    <img src="images/image5.jpg" alt="images/image5">
-                    <p style="text-align: justify;">Developed a Python-based News Article Classifier aims to categorize articles (Politics, Sports, Technology) submitted in text or URL format. Data is stored in MongoDB, enhancing user empowerment and data organization.</p>
-                </div>
-                <div class="work-project-card">
-                    <h3>Sign Language Translator:</h3>
-                    <p style="text-align: justify;"><a target="_blank" href="https://github.com/pvchaitanya8/Sign-Language-Translator-V1-#sign-language-translator-v1">GitHub</a></p>
-                    <img src="images/image6.jpg" alt="images/image6">
-                    <p style="text-align: justify;">This project has camera-equipped device records sign language, employing machine learning to translate it into spoken language, fostering improved communication between sign language users and non-users.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="achievements" class="section-container">
-            <h2>Achievements:</h2>
-            <ul class="work-experience-list">
-                <li>Won the Solving for India Hackathon at Institutional Level, which was conducted by GFG, Google and AMD - <a target="_blank" href="https://drive.google.com/file/d/16OWg-Mqj6ajsKRYsNaMRVdtprtam1TLe/view">Certificate</a>.</li>
-                <li>Won International Hackathon: Fresh Hacks by devpost. - <a target="_blank" href="https://devpost.com/venkatachaitanya373">Certificate</a>.</li>
-                <li>2-star coder in Codechef.</li>
-                <li>Completed 350+ problems on Leetcode and Geeks for Geeks.</li>
-                <li>Achieved 5-star rating on Hacker Rank in Problem Solving, C++, Python, SQL.</li>
-            </ul>
-        </section>
-        
-        <section id="work" class="section-container">
-            <h2>Volunteer Experience:</h2>
-            <ul class="work-experience-list">
-                <li>
-                    <h3>
-                        SDE Mentor | <a target="_blank" href="https://www.linkedin.com/company/innovativeorigin/"> Innovative Origin</a> | April 2024 – March 2025: 
-                        <a target="_blank" href="https://www.linkedin.com/in/chaitanya-venkata-a5a908212/"> <img src="images/innovative_Origin.png" alt="Company Logo" class="logo"> </a>
-                    </h3>
-                    <p style="text-align: justify;">- Taught industry-ready skills in AI and ML to a diverse group of <strong>100+</strong> students.<p style="text-align: justify;">
-                    <p style="text-align: justify;">- Provided interactive, personalized guidance classes.<p style="text-align: justify;">
-                </li>
-            </ul>
-        </section>
-        
-        <section id="certifications" class="section-container">
-            <h2>Certifications:</h2>
-            <ul class="work-experience-list">
-                <li>Azure AI Fundamentals from Microsoft - <a target="_blank" href="https://www.credly.com/badges/520bfb1f-9cda-4212-8897-419d7510b502/public_url">Certificate</a></li>
-                <li>MTA Python Certification from Microsoft - <a target="_blank" href="https://www.credly.com/badges/fa9ee6a6-af36-418f-8a8a-27adf7c9aead/public_url">Certificate</a></li>
-                <li>The Joy of Computing Using Python from NPTEL - <a target="_blank" href="https://drive.google.com/file/d/1XYO92zdNTYb4DNiTg6ehEXvRb-TC9b3b/view?usp=sharing">Certificate</a></li>
-                <li>Data Science for Beginners from NASSCOM - <a target="_blank" href="https://fsp-assessment-certificates.s3-ap-southeast-1.amazonaws.com/VenkataChaitanya-93771148.pdf">Certificate</a></li>
-            </ul>
-        </section>
-
-        <section id="complements" class="section-container">
-            <h2>Complements:</h2>
-            <ul class="complements-list">
-
-                <li>
-                    <blockquote>"Chaitanya worked at AIGen Media for 3 months. During this time he made contributions to key pieces of our product. He work was instrumental in improving the consistency of character and setting description in our image prompt generation pipeline."
-                    <div class="contact-details">
-                        <p>- Shashikanth Sreenivasaiah</p>
-                        <p>Email: shashi@aigenmedia.net</p>
-                    </div></blockquote>
-                </li>
-
-                <li>
-                    <blockquote>"I had the pleasure of working alongside P.V. Chaitanya at Springworks. I wholeheartedly recommend him for any role related to AI/ML and NLP. His technical expertise, innovative spirit, and collaborative approach make him an invaluable asset to any team."
-                    <div class="contact-details">
-                        <p>- Mulakaledu Usha Sree</p>
-                        <p>Email: ushasree.mulakaledu@gmail.com</p>
-                    </div></blockquote>
-                </li>
-
-                <li>
-                    <blockquote>"I wholeheartedly endorse Mr. Pennada Venkata Chaitanya as an exemplary student with a fervor for Artificial Intelligence and Machine Learning. His outstanding achievements, practical experience, and commitment to continuous learning make him an exceptional candidate for any academic or professional opportunity."
-                    <div class="contact-details">
-                        <p>- Nadella Sunil, M. TECH, (Ph. D)</p>
-                        <p>Email: sunil.nadella@acet.ac.in</p>
-                    </div></blockquote>
-                </li>
-
-                <li>
-                    <blockquote>"I am incredibly grateful to have had Chaitanya as my mentor in the field of AI/ML. His guidance has been instrumental in shaping my career, providing me with not just theoretical knowledge but practical insights that are easy to understand and apply. Chaitanya has a unique ability to break down complex concepts into simple, digestible pieces, making the learning process both enjoyable and effective. His support extended beyond just teaching by offering invaluable career advice that has had a lasting impact on my professional journey."
-                    <div class="contact-details">
-                        <p>Manasa siri Yalla</p>
-                        <p>Email: manasasiriy@gmail.com</p>
-                    </div></blockquote>
-                </li>
-
-                <li>
-                    <blockquote>"I’ve had the pleasure of working with Chaitanya, a brilliant Machine Learning Engineer who generously volunteers his time to teach at Innovativ Origin. He is not only knowledgeable but also an exceptional teacher. He simplifies complex AI-related concepts, making them easy to understand. His kindness and approachable nature encourage students to engage deeply. Chaitanya's dedication ensures that every student grasps the material, and his passion for teaching is evident in all he does. We're fortunate to have him on our team."
-                    <div class="contact-details">
-                        <p>Srinivas</p>
-                        <p>Email: support@innovativeorigin.onmicrosoft.com</p>
-                    </div></blockquote>
-                </li>                
-            </ul>
-        </section>
-        
-        <section id="profiles" class="section-container">
-            <h2>Profiles:</h2>
-            <ul class="work-experience-list">
-                <a target="_blank" href="https://www.linkedin.com/in/chaitanya-venkata-a5a908212/">
-                    <li>
-                        <img src="images/linkedin_logo.png" alt="LinkedIn Logo"> LinkedIn
-                    </li>
-                </a>
-                <a target="_blank" href="https://github.com/pvchaitanya8">
-                    <li>
-                        <img src="images/github_logo.png" alt="GitHub Logo"> GitHub
-                    </li>
-                </a>
-                <a target="_blank" href="https://devpost.com/venkatachaitanya373">
-                    <li>
-                        <img src="images/Devpost_Logo.png" alt="Devpost Logo"> Devpost
-                    </li>
-                </a>
-                <a target="_blank" href="https://leetcode.com/venkatachaitanya373/">
-                    <li>
-                        <img src="images/leetcode_logo.png" alt="LeetCode Logo"> LeetCode
-                    </li>
-                </a>
-                <a target="_blank" href="https://auth.geeksforgeeks.org/user/venkatachaitanya373">
-                    <li>
-                        <img src="images/geeksforgeeks_logo.png" alt="GeeksforGeeks Logo"> Geeks for Geeks
-                    </li>
-                </a>
-                <a target="_blank" href="https://www.codechef.com/users/pvchaitanya88">
-                    <li>
-                        <img src="images/codechef_logo.png" alt="CodeChef Logo"> Code Chef
-                    </li>
-                </a>
-                <a target="_blank" href="https://www.youtube.com/@p.v.chaitanya655">
-                    <li>
-                        <img src="images/youtube_logo.png" alt="youtube Logo"> Youtube
-                    </li>
-                </a>
-                <a target="_blank" href="https://linktr.ee/PVChaitanya">
-                    <li>
-                        <img src="images/linktree.png" alt="youtube Logo"> Linktree
-                    </li>
-                </a>
-            </ul>
-        </section>
+    <!-- Mathematical Background -->
+    <div class="math-background">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="floating-equation eq-1">∇f = ∂f/∂x î + ∂f/∂y ĵ + ∂f/∂z k̂</div>
+        <div class="floating-equation eq-2">e^(iπ) + 1 = 0</div>
+        <div class="floating-equation eq-3">∫ e^x dx = e^x + C</div>
+        <div class="floating-equation eq-4">lim(x→∞) (1 + 1/x)^x = e</div>
     </div>
+
+    <!-- AI Particles -->
+    <div class="ai-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">P. V. Chaitanya</span>
+                <div class="logo-ai-indicator"></div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#intro" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-dropdown" id="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdown-toggle">More <span class="dropdown-arrow">▼</span></a>
+                    <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                        <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
+                        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                        <li><a href="#social" class="nav-link">Connect</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Intro Section - Enhanced with Matrix Rain Animation -->
+        <section id="intro" class="section intro-section">
+            <div class="intro-container">
+                <div class="intro-text" data-aos="fade-up">
+                    <div class="terminal-intro">
+                        <div class="terminal-header">
+                            <span class="terminal-title">chaitanya@ai-portfolio:~$</span>
+                            <div class="terminal-controls">
+                                <div class="control control-close"></div>
+                                <div class="control control-min"></div>
+                                <div class="control control-max"></div>
+                            </div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="type-animation">
+                                <span class="prompt">></span>
+                                <span class="typed-text" id="typed-text"></span>
+                                <span class="typing-cursor">|</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="intro-title">
+                        <span class="hello-text">Hello, I'm</span>
+                        <span class="name-text">Chaitanya</span>
+                    </h1>
+                    <p class="intro-subtitle">AI Engineer • Tech Enthusiast</p>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <div class="status-dot active"></div>
+                            <span>Neural Networks: Active</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot active"></div>
+                            <span>Deep Learning: Online</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot processing"></div>
+                            <span>Model Training: Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-visual" data-aos="fade-left">
+                    <div class="ai-visualization">
+                        <!-- Neural Network Animation -->
+                        <div class="neural-network-container">
+                            <canvas id="neural-canvas" class="neural-canvas"></canvas>
+                            <div class="neural-overlay">
+                                <div class="data-stream">
+                                    <div class="stream-line" style="--delay: 0s">01101001</div>
+                                    <div class="stream-line" style="--delay: 0.5s">11010110</div>
+                                    <div class="stream-line" style="--delay: 1s">10110100</div>
+                                    <div class="stream-line" style="--delay: 1.5s">01001011</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Math Equations -->
+                        <div class="floating-math">
+                            <div class="math-eq" data-delay="0" title="Gradient Descent">∂L/∂w ← η∇J(θ)</div>
+                            <div class="math-eq" data-delay="500" title="Sigmoid Activation">σ(z) = 1/(1+e⁻ᶻ)</div>
+                            <div class="math-eq" data-delay="1000" title="Matrix Multiplication">Y = φ(WX + b)</div>
+                            <div class="math-eq" data-delay="1500" title="Euler's Identity">e^(iπ) + 1 = 0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="code-scroll">
+                    <span>scroll_to_explore()</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">About Me</h2>
+                <div class="about-content">
+                    <div class="about-profile" data-aos="fade-right">
+                        <div class="profile-image">
+                            <img src="images\pic.png" alt="Chaitanya Profile" class="profile-img">
+                        </div>
+                    </div>
+                    <div class="about-text" data-aos="fade-left">
+                        <p>I'm passionate about AI/ML and love using my skills to tackle real-world challenges. I'm proficient in Python, TensorFlow, and have a track record of successful AI/ML projects. Always eager to learn and collaborate, I'm looking for exciting opportunities to contribute to innovative AI/ML initiatives.</p>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="1.5">0</span>
+                                <span class="stat-label">+ Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="10">0</span>
+                                <span class="stat-label">+ Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="1">0</span>
+                                <span class="stat-label">+ Open Source Contributions</span>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div
+                        class="about-actions"
+                        data-aos="fade-left"
+                        style="display: flex; flex-direction: row; align-items: center; gap: 1rem;"
+                        >
+                        <a
+                            href="https://wa.me/+919494771283?text=Hello!%20Chaitanya"
+                            target="_blank"
+                            class="cta-button whatsapp-btn">
+                        >
+                            <svg
+                            viewBox="0 0 448 512"
+                            style="width:1em; height:1em; margin-right:0.5rem; fill:currentColor;"
+                            aria-hidden="true"
+                            >
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            Quick DM
+                        </a>
+
+                        <a
+                            href="files/P V Chaitanya RESUME.pdf"
+                            target="_blank"
+                            download
+                            class="social-link github"
+                        >
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:1em; height:1em; margin-right:0.5rem;">
+                            <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm-8 2h16v2H4v-2z"/>
+                            </svg>
+                            Resume Download
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="work" class="section work-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Work Experience</h2>
+                <div class="timeline">
+
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="work-card">
+                                <div class="work-header">
+                                    <h3 class="work-title">
+                                        <img src="images\innocito.png" alt="icon" class="work-icon">
+                                        Associate Software Engineer
+                                    </h3>
+                                    <span class="company">Innocito</span>
+                                    <span class="date">April 2025 – Present</span>
+                                </div>
+                                <div class="work-description">
+                                    <p>- As an Associate Software Engineer at Innocito, I'm working on research and development in generative AI, focusing on NLP, computer vision, and multimodal AI applications.</p>
+                                    <p>- Built a real-time AI Voice Agent with conversational intelligence, reducing latency by <span style="color: rgb(0, 110, 255);">3 seconds per request</span> for more natural experiences.</p>
+                                    
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Machine Learning</span>
+                                        <span class="tech-tag">Deep Learning</span>
+                                        <span class="tech-tag">Gen AI</span>
+                                        <span class="tech-tag">Multimodal LLMs</span>
+                                        <span class="tech-tag">PyTorch</span>
+                                        <span class="tech-tag">NLP</span>
+                                        <span class="tech-tag">Computer Vision</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="work-card">
+                                <div class="work-header">
+                                    <h3 class="work-title">
+                                        <img src="images\working.png" alt="icon" class="work-icon">
+                                        AI Software Developer
+                                    </h3>
+                                    <span class="company">Freelancing</span>
+                                    <span class="date">March 2024 – February 2025</span>
+                                </div>
+                                <div class="work-description">
+                                    <b>Hooman Digital</b>
+                                    <p>- Fine-tuned AI agents for AI-powered social media, cutting manual task time by <span style="color: rgb(0, 110, 255);">30% via automation</span> and delivering ahead of schedule.</p>
+                                    
+                                    <b>Persist Ventures</b>
+                                    <p>- Built a fully automated AI-powered GIF Studio, boosting <span style="color: rgb(0, 110, 255);">accuracy (95%)</span>, <span style="color: rgb(0, 110, 255);">speed (5×)</span>, & <span style="color: rgb(0, 110, 255);">user engagement (100×)</span>.</p>
+                                    
+                                    <b>AI Gen media</b>
+                                    <p>- Built an AI-driven text-to-video tool ahead of schedule, achieving <span style="color: rgb(0, 110, 255);">visual consistency (80%)</span> from concept to production.</p>
+                                    
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">OpenCV</span>
+                                        <span class="tech-tag">MoviePy</span>
+                                        <span class="tech-tag">Streamlit</span>
+                                        <span class="tech-tag">FastAPI</span>
+                                        <span class="tech-tag">Selenium</span>
+                                        <span class="tech-tag">Google OAuth</span>
+                                        <span class="tech-tag">Web Scraping</span>
+                                        <span class="tech-tag">NLP</span>
+                                        <span class="tech-tag">Prompt Engineering</span>
+                                        <span class="tech-tag">Gen AI</span>
+                                        <span class="tech-tag">Multimodal LLMs</span>
+                                        <span class="tech-tag">Crew AI</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="work-card">
+                                <div class="work-header">
+                                    <h3 class="work-title">
+                                        <img src="images\springworks_logo.png" alt="icon" class="work-icon">
+                                        SDE AI/ML Intern
+                                    </h3>
+                                    <span class="company">Spring Works</span>
+                                    <span class="date">July 2023 - September 2023</span>
+                                </div>
+                                <div class="work-description">
+                                    <p>- Increased chatbot <span style="color: rgb(0, 110, 255);">test coverage from 30% to 75%</span> through Python test development.</p>
+                                    <p>- Collaborated with fellow interns to develop successful Proofs of Concept (POCs).</p>
+                                    
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Pytest</span>
+                                        <span class="tech-tag">NLP</span>
+                                        <span class="tech-tag">LLMs</span>
+                                        <span class="tech-tag">LangChain</span>
+                                        <span class="tech-tag">LlamaIndex</span>
+                                        <span class="tech-tag">Vector Database</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="work-card">
+                                <div class="work-header">
+                                    <h3 class="work-title">
+                                        <img src="images\THub_logo.png" alt="icon" class="work-icon">
+                                        AI/ML Intern
+                                    </h3>
+                                    <span class="company">Technical Hub</span>
+                                    <span class="date">July - Nov 2022 & May - July 2023</span>
+                                </div>
+                                <div class="work-description">
+                                    <p>- Developed and deployed ML models, increasing model <span style="color: rgb(0, 110, 255);">accuracy by 90%</span>.</p>
+                                    <p>- Mentored new interns, providing guidance and assistance with project blockers.</p>
+                                    
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Machine Learning</span>
+                                        <span class="tech-tag">Deep Learning</span>
+                                        <span class="tech-tag">TensorFlow</span>
+                                        <span class="tech-tag">NLP</span>
+                                        <span class="tech-tag">LLMs</span>
+                                        <span class="tech-tag">Computer Vision</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+                <div class="skills-grid">
+
+                    <!-- Programming Languages -->
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-badges">
+                            <div class="skill-badge cpp">
+                                <img src="images\python.png" alt="Python" />
+                                Python
+                            </div>
+                            <div class="skill-badge cpp">
+                                <img src="images\c.png" alt="C++" />
+                                C/C++
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technologies & Proficiencies -->
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Technologies & Proficiencies</h3>
+                        <div class="skill-badges">
+                            <div class="skill-badge ml">
+                                <img src="images\ml.png" alt="ML" />
+                                Machine Learning
+                            </div>
+                            <div class="skill-badge dl">
+                                <img src="images\deep-learning.png" alt="Deep Learning" />
+                                Deep Learning
+                            </div>
+                            <div class="skill-badge genai">
+                                <img src="images\ai-technology.png" alt="Generative AI" />
+                                Generative AI
+                            </div>
+                            <div class="skill-badge agents">
+                                <img src="images\ai_agents.png" alt="AI Agents" />
+                                AI Agents
+                            </div>
+                            <div class="skill-badge rag">
+                                <img src="images\database.png" alt="RAG" />
+                                RAG
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks & Tools -->
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Frameworks & Tools</h3>
+                        <div class="skill-badges">
+                            <div class="skill-badge pytorch">
+                                <img src="images\pytorch-logo.png" alt="PyTorch" />
+                                PyTorch
+                            </div>
+                            <div class="skill-badge langchain">
+                                <img src="images\LangChain.png" alt="LangChain" />
+                                LangChain
+                            </div>
+                            <div class="skill-badge fastapi">
+                                <img src="images\fastapi.png" alt="FastAPI" />
+                                FastAPI
+                            </div>
+                            <div class="skill-badge sql">
+                                <img src="images\sql-server.png" alt="SQL" />
+                                SQL
+                            </div>
+                            <div class="skill-badge nosql">
+                                <img src="images\database-storage.png" alt="NoSQL" />
+                                NoSQL
+                            </div>
+                            <div class="skill-badge pytest">
+                                <img src="images\Pytest_logo.png" alt="Pytest" />
+                                Pytest
+                            </div>
+                            <div class="skill-badge streamlit">
+                                <img src="images\Streamlit.png" alt="Streamlit" />
+                                Streamlit
+                            </div>
+                            <div class="skill-badge git">
+                                <img src="images\git.png" alt="Git" />
+                                Git
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Education Section -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Education</h2>
+                <div class="education-timeline">
+                    <div class="education-item" data-aos="fade-right">
+                        <div class="education-card">
+                            <div class="education-header">
+                                <h3 class="work-title">
+                                    <img src="images\ACET.png" alt="icon" class="work-icon">
+                                    Bachelor's degree in Computer Science Engineering
+                                  </h3>
+                                <span class="institution">Aditya College of Engineering & Technology</span>
+                                <span class="date">2020 - 2024</span>
+                            </div>
+                            <div class="education-description">
+                                <p>Graduated from Aditya College of Engineering and Technology with a focus on <b>AI/ML & Data Structures</b>.</p>
+                                <!-- <div class="education-stats">
+                                    <span class="stat">Current GPA: 7.51/10</span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+                <div class="projects-grid" data-aos="fade-up">
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image9.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">GenAI</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">ED AI</h3>
+                            <p class="project-description">
+                                ED AI is an AI-powered educational assistant that enhances learning with personalized course recommendations, Socratic method chat, and mock interview simulations, addressing teaching and learning challenges.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">95%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="proj_stat">
+                                    <span class="stat-value">30fps</span>
+                                    <span class="stat-label">Real-time</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+                                <a href="https://youtu.be/iMmVZVYfqn0?si=ylHk91QjeXD3bOBH" target="_blank" class="project-link">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M13.12 0C5.925 0 0 5.925 0 13.12c0 5.8 3.8 10.7 9.1 12.4.1-.8.1-2.1 0-3-.6-.3-1.3-.6-1.7-1.1-.5-.6-.8-1.4-.8-2.2 0-1.1.4-2.1 1.1-2.9.7-.8 1.7-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2.7.8 1.1 1.8 1.1 2.9 0 .8-.3 1.6-.8 2.2-.4.5-1.1.8-1.7 1.1-.1.9-.1 2.2 0 3 5.3-1.7 9.1-6.6 9.1-12.4C26.24 5.925 20.315 0 13.12 0zM12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/>
+                                    </svg>
+                                    Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image8.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Automation</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">OpenCV</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">GenAI</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI-Powered Video to GIF</h3>
+                            <p class="project-description">
+                                This Streamlit web app lets users automatically create text-overlay GIFs from videos. It transcribes audio, identifies key moments, and generates GIFs displaying transcribed words at those moments.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">87%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="proj_stat">
+                                    <span class="stat-value">5</span>
+                                    <span class="stat-label">Data Sources</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image7.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Automation</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">OpenCV</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">GenAI</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Story Book AI</h3>
+                            <p class="project-description">
+                                This project explores transforming textual narratives like story scripts and novels into visual representations. It achieves this through a sequence of images, capturing the essence of key scenes and characters.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">92%</span>
+                                    <span class="stat-label">F1-Score</span>
+                                </div>
+                                <div class=proj_stat>
+                                    <span class="stat-value">1M+</span>
+                                    <span class="stat-label">Texts Analyzed</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image1.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">GenAI</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">RAG</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI-Enhanced Surveillance</h3>
+                            <p class="project-description">
+                                Automating surveillance, the Face Recognition System scans live camera feeds for specific individuals via facial recognition. It detects faces, alerts upon matches in its database, streamlining surveillance.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">95%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="proj_stat">
+                                    <span class="stat-value">30fps</span>
+                                    <span class="stat-label">Real-time</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image2.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">TensorFlow</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">OpenCV</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">LLM-powered Database Assistant</h3>
+                            <p class="project-description">
+                                Utilizing an open-source Large Language Model, our custom chatbot excels in natural conversations, seamlessly integrating with a tailored Database for comprehensive knowledge and personalized interactions..
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">87%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="proj_stat">
+                                    <span class="stat-value">5</span>
+                                    <span class="stat-label">Data Sources</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image3.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">TensorFlow</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">OpenCV</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">License Plate Detection</h3>
+                            <p class="project-description">
+                                YOLOv5 is used for License Plate Detection, employing machine learning to identify license plates in images. Its web interface allows easy media upload and processing, providing the count of detected Yellow plates.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">92%</span>
+                                    <span class="stat-label">F1-Score</span>
+                                </div>
+                                <div class=proj_stat>
+                                    <span class="stat-value">1M+</span>
+                                    <span class="stat-label">Texts Analyzed</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image4.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">TensorFlow</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">DL</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Stock Price Prediction</h3>
+                            <p class="project-description">
+                                By Utilizing LSTM algorithm, this project predicts stock prices, aiding investors with informed decisions, steering clear of unreliable sources. Also developed a Flask-powered web app employing HTML/CSS for accessibility.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">95%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="proj_stat">
+                                    <span class="stat-value">30fps</span>
+                                    <span class="stat-label">Real-time</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image5.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">TensorFlow</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">NLP</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Article Classifier & Database</h3>
+                            <p class="project-description">
+                                Developed a Python-based News Article Classifier aims to categorize articles (Politics, Sports, Technology) submitted in text or URL format. Data is stored in MongoDB, enhancing user empowerment and data organization.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">87%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="proj_stat">
+                                    <span class="stat-value">5</span>
+                                    <span class="stat-label">Data Sources</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="height: 200px; background-image: url('images/image6.jpg'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div class="project-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">Python</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">TensorFlow</span>
+                                <span class="tech-tag" style="background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 12px; padding: 4px 13px; border-radius: 15px;">OpenCV</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sign Language Translator</h3>
+                            <p class="project-description">
+                                This project has camera-equipped device records sign language, employing machine learning to translate it into spoken language, fostering improved communication between sign language users and non-users.
+                            </p>
+                            <!-- <div class="project-stats">
+                                <div class="proj_stat">
+                                    <span class="stat-value">92%</span>
+                                    <span class="stat-label">F1-Score</span>
+                                </div>
+                                <div class=proj_stat>
+                                    <span class="stat-value">1M+</span>
+                                    <span class="stat-label">Texts Analyzed</span>
+                                </div>
+                            </div> -->
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="social-link github">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    GitHub
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section achievements-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Achievements</h2>
+                <div class="achievements-grid">
+                    <!-- AOS on this wrapper, not on the card itself -->
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <h3>Google Hackathon</h3>
+                        <p>Won the Solving for India Hackathon at Institutional Level, which was conducted by GFG, Google and AMD.</p>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <h3>International Hackathon</h3>
+                        <p>Won International Hackathon: Fresh Hacks by devpost.</p>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="achievement-card">
+                        <div class="achievement-icon">⭐</div>
+                        <h3>Hacker Rank Rating</h3>
+                        <p>Achieved 5-star rating on Hacker Rank in Problem Solving, C++, Python, SQL.</p>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="achievement-card">
+                        <div class="achievement-icon">🚀</div>
+                        <h3>Problem Solving</h3>
+                        <p>Completed 350+ problems on Leetcode and Geeks for Geeks.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Volunteer Work Section -->
+        <section id="volunteer" class="section volunteer-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Volunteer Experience</h2>
+                <div class="volunteer-content">
+                    <div data-aos="fade-right">
+                        <div class="volunteer-card">
+                        <h3 class="work-title">
+                            <img src="images\innovative_Origin.png" alt="icon" class="work-icon">
+                            SDE Mentor | Innovative Origin
+                        </h3>
+                        <p>From April 2024 to March 2025, I volunteered as an SDE Mentor at Innovative Origin, where I mentored over 100 students in AI and ML, focusing on industry-relevant skills and practical applications. I also conducted interactive, personalized guidance sessions to enhance their learning experience.</p>
+                        <div class="volunteer-impact">
+                            <span>📚 Taught 100+ students</span>
+                            <span>⏰ 300+ hours contributed</span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section certifications-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+                <div class="certifications-grid" data-aos="fade-up">
+                    <div class="certification-card">
+                        <div class="cert-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="cert-title">Azure</h3>
+                        <h3 class="cert-title">AI Fundamentals</h3>
+                        <p class="cert-issuer">Microsoft</p>
+                        <span class="cert-year">2023</span>
+                    </div>
+
+                    <div class="certification-card">
+                        <div class="cert-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="cert-title">MTA Python Certification</h3>
+                        <p class="cert-issuer">Microsoft</p>
+                        <span class="cert-year">2022</span>
+                    </div>
+
+                    <div class="certification-card">
+                        <div class="cert-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="cert-title">The Joy of Computing Using Python</h3>
+                        <p class="cert-issuer">NPTEL</p>
+                        <span class="cert-year">2023</span>
+                    </div>
+
+                    <div class="certification-card">
+                        <div class="cert-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="cert-title">Data Science for Beginners</h3>
+                        <p class="cert-issuer">NASSCOM</p>
+                        <span class="cert-year">2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section testimonials-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">What People Say</h2>
+                <div class="testimonials-container" data-aos="fade-up">
+                    <div class="testimonials-carousel">
+                        <div class="testimonial-track" id="testimonial-track">
+                            <div class="testimonial-card active">
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"I’ve had the pleasure of working with Chaitanya, a brilliant Machine Learning Engineer who generously volunteers his time to teach at Innovativ Origin. He is not only knowledgeable but also an exceptional teacher. He simplifies complex AI-related concepts, making them easy to understand. His kindness and approachable nature encourage students to engage deeply. Chaitanya's dedication ensures that every student grasps the material, and his passion for teaching is evident in all he does. We're fortunate to have him on our team."</p>
+                                    <div class="testimonial-author">
+                                        <div class="author-info">
+                                            <h4 class="author-name">Srinivas</h4>
+                                            <p class="author-title">Founder, Innovative Origin</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"Chaitanya worked at AIGen Media for 3 months. During this time he made contributions to key pieces of our product. He work was instrumental in improving the consistency of character and setting description in our image prompt generation pipeline."</p>
+                                    <div class="testimonial-author">
+                                        <div class="author-info">
+                                            <h4 class="author-name">Shashikanth Sreenivasaiah</h4>
+                                            <p class="author-title">Founder, AI Gen Media</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"I wholeheartedly endorse Mr. Pennada Venkata Chaitanya as an exemplary student with a fervor for Artificial Intelligence and Machine Learning. His outstanding achievements, practical experience, and commitment to continuous learning make him an exceptional candidate for any academic or professional opportunity."</p>
+                                    <div class="testimonial-author">
+                                        <div class="author-info">
+                                            <h4 class="author-name">Nadella Sunil, M. TECH, (Ph. D)</h4>
+                                            <p class="author-title">Associate Professor, Department of Computer Science and Engineering, Aditya College of Engineering & Technology</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"I had the pleasure of working alongside P.V. Chaitanya at Springworks. I wholeheartedly recommend him for any role related to AI/ML and NLP. His technical expertise, innovative spirit, and collaborative approach make him an invaluable asset to any team."</p>
+                                    <div class="testimonial-author">
+                                        <div class="author-info">
+                                            <h4 class="author-name">Mulakaledu Usha Sree</h4>
+                                            <p class="author-title">SDE Intern, Spring Works</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"I am incredibly grateful to have had Chaitanya as my mentor in the field of AI/ML. His guidance has been instrumental in shaping my career, providing me with not just theoretical knowledge but practical insights that are easy to understand and apply. Chaitanya has a unique ability to break down complex concepts into simple, digestible pieces, making the learning process both enjoyable and effective. His support extended beyond just teaching by offering invaluable career advice that has had a lasting impact on my professional journey."</p>
+                                    <div class="testimonial-author">
+                                        <div class="author-info">
+                                            <h4 class="author-name">Manasa siri Yalla</h4>
+                                            <p class="author-title">AI Trainee, innovative Origin</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-navigation">
+                        <div class="nav-dots">
+                            <span class="nav-dot active" data-slide="0"></span>
+                            <span class="nav-dot" data-slide="1"></span>
+                            <span class="nav-dot" data-slide="2"></span>
+                            <span class="nav-dot" data-slide="3"></span>
+                            <span class="nav-dot" data-slide="4"></span>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev-btn" id="prev-btn">‹</button>
+                            <button class="carousel-btn next-btn" id="next-btn">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Connect Section -->
+        <section id="social" class="section social-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+                <div class="social-content" data-aos="fade-up">
+                    <p class="social-description">
+                        I'm always excited to discuss AI/ML projects, share knowledge, and collaborate on innovative solutions. 
+                        Feel free to reach out through any of these platforms!
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/pv-chaitanya-venkata/" target="_blank" class="social-link linkedin">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+
+                        <a href="https://github.com/pvchaitanya8" target="_blank" class="social-link github">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+
+                        <a href="mailto:venkatachaitanya373@gmail.com" class="social-link email">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <span>Email</span>
+                        </a>
+
+                        <a href="https://wa.me/+919494771283?text=Hello!%20Chaitanya" target="_blank" class="social-link whatsapp">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                            <span>WhatsApp</span>
+                        </a>
+
+                        <a href="https://x.com/PVChaitanya08" target="_blank" class="social-link twitter">
+                            <img src="images\twitter.png"
+                                alt="Devpost"
+                                alt="Devpost"
+                                width="24"
+                                height="24"
+                            class="social-icon">
+                            <span>Twitter</span>
+                        </a>
+                        
+                        <a href="https://devpost.com/venkatachaitanya373" target="_blank" class="social-link devpost">
+                            <img src="images\Devpost_Logo.png"
+                                alt="Devpost"
+                                alt="Devpost"
+                                width="25"
+                                height="25"
+                            class="social-icon">
+                            <span>Devpost</span>
+                        </a>
+
+                        <a href="https://leetcode.com/u/venkatachaitanya373/" target="_blank" class="social-link leetcode">
+                            <img src="images\leetcode_logo.png"
+                                alt="Devpost"
+                                alt="Devpost"
+                                width="25"
+                                height="25"
+                            class="social-icon">
+                            <span>LeetCode</span>
+                        </a>
+
+                        <a href="https://www.geeksforgeeks.org/user/venkatachaitanya373/" target="_blank" class="social-link gfg">
+                            <img src="images\geeksforgeeks_logo.png"
+                                alt="Devpost"
+                                alt="Devpost"
+                                width="25"
+                                height="25"
+                            class="social-icon">
+                            <span>GeeksforGeeks</span>
+                        </a>
+
+                        <a href="https://www.codechef.com/users/pvchaitanya88" target="_blank" class="social-link codechef">
+                            <img src="images\codechef_logo.png"
+                                alt="Devpost"
+                                alt="Devpost"
+                                width="25"
+                                height="25"
+                            class="social-icon">
+                            <span>CodeChef</span>
+                        </a>
+
+                        <a href="https://www.youtube.com/@p.v.chaitanya655" target="_blank" class="social-link youtube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.61-1.6 2.07-.77.46-1.73.74-2.96.88-1.5.16-3.12.22-5 .22s-3.5-.06-5-.22c-1.23-.14-2.19-.42-2.96-.88-.77-.46-1.35-1.17-1.6-2.07C2.16 15.8 2 14.19 2 12s.16-3.8.44-4.83c.25-.9.83-1.61 1.6-2.07.77-.46 1.73-.74 2.96-.88 1.5-.16 3.12-.22 5-.22s3.5.06 5 .22c1.23.14 2.19.42 2.96.88.77.46 1.35 1.17 1.6 2.07z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </a>
+
+                        <a href="https://linktr.ee/PVChaitanya" target="_blank" class="social-link linktree">
+                            <img src="images\linktree.png"
+                                alt="Devpost"
+                                alt="Devpost"
+                                width="25"
+                                height="25"
+                            class="social-icon">
+                            <span>Linktree</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Chaitanya. All rights reserved.</p>
+                    <p>Built with 💙 and AI-powered creativity</p>
+                </div>
+                <div class="footer-right">
+                    <p>Designed & Developed by Chaitanya</p>
+                    <div class="footer-tech">
+                        <span>Powered by</span>
+                        <div class="tech-badges">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
