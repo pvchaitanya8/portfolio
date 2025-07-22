@@ -1478,12 +1478,12 @@ body {
 }
 
 .project-link svg {
-    width: 16px;
-    height: 16px;
+    width: 19px;
+    height: 19px;
 }
 
 .project-link:hover {
-    background: var(--accent-primary);
+    background: red;
     color: var(--primary-bg);
     transform: translateY(-2px);
 }
