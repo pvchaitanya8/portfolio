@@ -1,6 +1,6 @@
-// Enhanced Portfolio Website JavaScript - FIXED VERSION
+// Enhanced Portfolio Website JavaScript
 // Author: Chaitanya
-// AI-powered interactive portfolio with FIXED testimonial carousel, project hover effects, and navbar issues
+// AI-powered interactive portfolio with Lorenz Attractor loader, stable testimonial carousel, and enhanced UI effects.
 
 class PortfolioApp {
     constructor() {
@@ -36,7 +36,7 @@ class PortfolioApp {
     }
 
     start() {
-        this.initializeLoading();
+        this.initializeLorenzLoader(); // New loader
         this.setupEventListeners();
         this.initializeAnimations();
         this.setupIntersectionObserver();
@@ -48,12 +48,138 @@ class PortfolioApp {
         this.initializeEnhancedCursor();
         this.initializeTypingAnimation();
         this.initializeMatrixRain();
-        this.initializeTestimonials(); // FIXED: Proper testimonial initialization
-        
-        // Hide loading screen after animations
-        setTimeout(() => this.hideLoadingScreen(), 2000);
+        this.initializeTestimonials();
     }
 
+    // New Lorenz Attractor Loader
+    initializeLorenzLoader() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (!loadingScreen) return;
+
+        const canvas = document.getElementById('lorenz-canvas');
+        const loadingBar = document.getElementById('loading-bar');
+        const percentageText = document.getElementById('loading-percentage');
+
+        if (!canvas || !loadingBar || !percentageText) return;
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        camera.position.z = 50;
+
+        // --- Lorenz Attractor Logic ---
+        let x = 0.01, y = 0, z = 0;
+        const sigma = 10, rho = 28, beta = 8.0 / 3.0;
+        const dt = 0.01;
+        const points = [];
+        const maxPoints = 10000; // Increased points for a longer trail
+
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(maxPoints * 3);
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        // Enhanced material for a more striking look
+        const material = new THREE.LineBasicMaterial({ 
+            color: 0x00AFFF, // Brighter, more striking blue
+            linewidth: 1.5,
+            transparent: true,
+            opacity: 0.8
+        });
+        const line = new THREE.Line(geometry, material);
+        scene.add(line);
+
+        let pointIndex = 0;
+
+        function updateLorenz() {
+            const dx = sigma * (y - x);
+            const dy = x * (rho - z) - y;
+            const dz = x * y - beta * z;
+
+            x += dx * dt;
+            y += dy * dt;
+            z += dz * dt;
+            
+            // Cycle through the array to create a continuous effect
+            const currentPoint = pointIndex % maxPoints;
+            positions[currentPoint * 3] = x;
+            positions[currentPoint * 3 + 1] = y;
+            positions[currentPoint * 3 + 2] = z - 28;
+
+            
+            pointIndex++;
+        }
+
+        // --- Animation and Loading Simulation ---
+        let progress = 0;
+        const loadingDuration = 2500; // ms
+        let startTime = null;
+        let isLoadingComplete = false;
+
+        function animate(time) {
+            if (!startTime) startTime = time;
+            const elapsedTime = time - startTime;
+            
+            // Update loading progress only if not complete
+            if (!isLoadingComplete) {
+                progress = Math.min(elapsedTime / loadingDuration, 1);
+                const percent = Math.floor(progress * 100);
+                loadingBar.style.width = `${percent}%`;
+                percentageText.textContent = `${percent}%`;
+            }
+        
+            // Continuously add points
+            for (let i = 0; i < 20; i++) { // Increased from 10 to 25 for faster drawing
+                updateLorenz();
+            }
+        
+            // Update geometry
+            line.geometry.setDrawRange(0, Math.min(pointIndex, maxPoints));
+            line.geometry.attributes.position.needsUpdate = true;
+            
+            // Animate the line
+            line.rotation.y += 0.005;
+            line.rotation.x += 0.002;
+        
+            renderer.render(scene, camera);
+            
+            // Check if loading has just finished
+            if (progress >= 1 && !isLoadingComplete) {
+                isLoadingComplete = true;
+                setTimeout(() => this.hideLoadingScreen(), 300);
+            }
+        
+            // By moving this line here, the animation is always requested for the next frame, creating an infinite loop.
+            requestAnimationFrame(animate); 
+        }
+
+        // Bind 'this' for the final call
+        animate = animate.bind(this);
+        requestAnimationFrame(animate);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        }, false);
+    }
+
+    // Hide the new loading screen
+    hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            // This will make the loading bar and percentage fade out,
+            // but the container with the canvas remains.
+            loadingScreen.classList.add('hidden');
+        }
+    }
+    
     // FIXED: Enhanced Cursor with Faster, More Natural Movement
     initializeEnhancedCursor() {
         const cursor = document.createElement('div');
@@ -773,59 +899,6 @@ class PortfolioApp {
 
         // Start typing animation after a short delay
         setTimeout(typeText, 1000);
-    }
-
-    // Enhanced loading screen with progress simulation
-    initializeLoading() {
-        const loadingScreen = document.getElementById('loading-screen');
-        const progressText = document.querySelector('.progress-text');
-        const loadingText = document.getElementById('loading-text');
-        
-        if (!loadingScreen) return;
-
-        const loadingMessages = [
-            'Initializing AI systems...',
-            'Loading neural networks...',
-            'Optimizing algorithms...',
-            'Preparing interface...',
-            'Almost ready...'
-        ];
-
-        let messageIndex = 0;
-        let progress = 0;
-
-        const updateProgress = () => {
-            progress += Math.random() * 15 + 5;
-            if (progress > 100) progress = 100;
-
-            if (progressText) {
-                progressText.textContent = Math.floor(progress) + '%';
-            }
-
-            if (loadingText && messageIndex < loadingMessages.length) {
-                loadingText.textContent = loadingMessages[messageIndex];
-                messageIndex++;
-            }
-
-            if (progress < 100) {
-                setTimeout(updateProgress, 300 + Math.random() * 200);
-            }
-        };
-
-        updateProgress();
-    }
-
-    hideLoadingScreen() {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            loadingScreen.classList.add('hidden');
-            // Remove from DOM after transition
-            setTimeout(() => {
-                if (loadingScreen.parentNode) {
-                    loadingScreen.parentNode.removeChild(loadingScreen);
-                }
-            }, 800);
-        }
     }
 
     // Initialize animations
