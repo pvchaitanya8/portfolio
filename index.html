@@ -6,63 +6,20 @@
     <title>Chaitanya's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon_logo.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Loading Animation - Teen Engineering + AI Inspired -->
+    <!-- New Lorenz Attractor Loading Screen -->
     <div id="loading-screen" class="loading-screen">
-        <div class="loading-container">
-            <!-- AI Processing Grid -->
-            <div class="ai-processor">
-                <div class="processor-grid">
-                    <div class="grid-cell" data-delay="0"></div>
-                    <div class="grid-cell" data-delay="100"></div>
-                    <div class="grid-cell" data-delay="200"></div>
-                    <div class="grid-cell" data-delay="300"></div>
-                    <div class="grid-cell" data-delay="400"></div>
-                    <div class="grid-cell" data-delay="500"></div>
-                    <div class="grid-cell" data-delay="600"></div>
-                    <div class="grid-cell" data-delay="700"></div>
-                    <div class="grid-cell" data-delay="800"></div>
-                </div>
-                <div class="processing-bars">
-                    <div class="bar" style="--delay: 0.1s"></div>
-                    <div class="bar" style="--delay: 0.2s"></div>
-                    <div class="bar" style="--delay: 0.3s"></div>
-                    <div class="bar" style="--delay: 0.4s"></div>
-                    <div class="bar" style="--delay: 0.5s"></div>
-                </div>
+        <div class="loading-content">
+            <canvas id="lorenz-canvas"></canvas>
+            <div class="loading-bar-container">
+                <div id="loading-bar" class="loading-bar"></div>
             </div>
-            
-            <!-- Loading Text with Code Effect -->
-            <div class="loading-terminal">
-                <div class="terminal-line">
-                    <span class="prompt">$</span>
-                    <span class="loading-text" id="loading-text">Initializing AI systems...</span>
-                    <span class="cursor-blink">_</span>
-                </div>
-                <div class="loading-progress">
-                    <div class="progress-bar"></div>
-                    <span class="progress-text">0%</span>
-                </div>
-            </div>
-            
-            <!-- Mathematical Equations -->
-            <div class="code-snippet">
-                <div class="code-line">
-                    <span class="code-comment">// Neural Network Forward Pass</span>
-                </div>
-                <div class="code-line">
-                    <span class="code-keyword">def</span> 
-                    <span class="code-function">forward</span><span class="code-bracket">(</span><span class="code-param">x</span><span class="code-bracket">):</span>
-                </div>
-                <div class="code-line">
-                    <span class="code-indent">    </span><span class="code-keyword">return</span> 
-                    <span class="code-function">softmax</span><span class="code-bracket">(</span><span class="code-param">W @ x + b</span><span class="code-bracket">)</span>
-                </div>
-            </div>
+            <div id="loading-percentage" class="loading-percentage">0%</div>
         </div>
     </div>
 
