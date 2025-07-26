@@ -131,8 +131,8 @@ class PortfolioApp {
                 percentageText.textContent = `${percent}%`;
             }
         
-            // Continuously add points
-            for (let i = 0; i < 20; i++) { // Increased from 10 to 25 for faster drawing
+            // Increase speed loading Animation
+            for (let i = 0; i < 40; i++) {
                 updateLorenz();
             }
         
