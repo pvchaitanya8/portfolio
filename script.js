@@ -115,7 +115,7 @@ class PortfolioApp {
 
         // --- Animation and Loading Simulation ---
         let progress = 0;
-        const loadingDuration = 2500; // ms
+        const loadingDuration = 1900; // ms
         let startTime = null;
         let isLoadingComplete = false;
 
